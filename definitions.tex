@@ -1,0 +1,68 @@
+%%%
+%%% Environments
+%%%
+
+\newsavebox{\speaker}
+\newenvironment{chapterquote}[1]
+    {\begin{flushright}\begin{minipage}{3 in}\sbox{\speaker}{#1}\itshape\singlespace}
+    {\begin{flushright}---\usebox{\speaker}\end{flushright}\end{minipage}\end{flushright}}
+
+% Note: chapterquote works (and looks) best when the chapter begins with a \section{} ...
+% If you hadn't planned on beginning the chapter with a \section, try \section{Overview} :-)
+% otherwise, some \vspace{} might be necessary, but that won't be consistent throughout the thesis
+
+%%%
+%%%  Functions---Commands that take parameters
+%%%
+\newcommand{\cfig}[3]{\centering\includegraphics[keepaspectratio=true,width=#3in]{./CH#1/EPSFDocs/#2}}
+\newcommand{\acro}[1]{\textsc{#1}}
+\newcommand{\sci}[2]{\ensuremath{#1 \!  \times \!  10^{#2}}}
+\newcommand{\vect}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\unitvec}[1]{\vect{\hat{#1}}}
+\newcommand{\threebythree}[9]{\renewcommand{\arraystretch}{0.75}\begin{vmatrix}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{vmatrix}\renewcommand{\arraystretch}{1.0}}
+\newcommand{\mysci}[2]{\ensuremath{#1 \!  \times \!  10^{#2}}}
+\newcommand{\myprop}[5]{g(#1,#2;#3,#4;#5)}
+\newcommand{\myint}[3]{\int_{#1}^{#2}#3}
+\newcommand{\myintinfinf}[1]{\myint{-\infty}{\infty}{#1}}
+
+
+%%%
+%%%  New Math Operators
+%%%
+
+\DeclareMathOperator{\polylog}{Li}
+
+
+%%%
+%%%  Symbols---Commands that are shorthand
+%%%
+\newcommand{\rf}{\acro{rf}\xspace}
+\newcommand{\dc}{\acro{dc}\xspace}
+\newcommand{\ac}{\acro{ac}\xspace}
+\newcommand{\ccd}{\acro{ccd}\xspace}
+\newcommand{\mach}{\acro{mach2}\xspace}
+\newcommand{\mgmhd}{\acro{mgmhd}\xspace}
+\newcommand{\cea}{\acro{cea}\xspace}
+\newcommand{\half}{\nicefrac{1}{2}\,}
+\newcommand{\xx}{\ensuremath{\unitvec{x}}\xspace}
+\newcommand{\yy}{\ensuremath{\unitvec{y}}\xspace}
+\newcommand{\zz}{\ensuremath{\unitvec{z}}\xspace}
+\newcommand{\ttl}{\acro{ttl}\xspace}
+\newcommand{\pmt}{\acro{pmt}\xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\qmn}{\ensuremath{q^{mn}}\xspace}
+\newcommand{\isp}{\ensuremath{I_{sp}}\xspace}
+
+
+
+%%%
+%%%  Other stuff I've found - Evaluate for usefulness
+%%%
+
+%\newcommand{\quan}[2][]{\mbox{$#1\,\mathrm{#2}$}}
+%\newcommand{\vv}[1]{\ensuremath{\boldsymbol{#1}}}
+%\newcommand{\tempc}[1]{\quan[#1]{^{\circ}C}}
+%\DeclareMathOperator{\sinc}{sinc}
+%\newcommand{\comment}[1]{\marginpar{\Large \hfill \ddag}\textsf{#1}}
+%\newcommand{\comment}[1]{}
