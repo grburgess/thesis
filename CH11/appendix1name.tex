@@ -1,0 +1,88 @@
+\chapter{Degeneracies in Physical Models}
+\label{ch:degen}
+The number of free parameters in the physical models implemented in
+{\tt RMFIT} exceeds the number of parameters than can be constrained
+by the fitting engine. This is due to two factors: spectral resolution
+and degeneracies in the fit parameters. The spectral resolution of the
+instrument is a fixed quantity and can not be altered; however, the
+degeneracies in the fit parameters can be dealt with be reformulating
+their numerical expressions. Here, degeneracies in the slow-cooled
+synchrotron model will be dealt with.
+
+
+The synchrotron spectrum has three characteristics that determine its
+shape including the high-energy electron index, $\vFv$ peak position,
+and the overall amplitude. However, their are six free parameters in
+our formulation of the model: $n_0$, $\gammaMin$, $\gamth$, $B$,
+$\delta$, $\epsilon$, and $\Gamma$. The main degeneracy exists in the determination of the of $\Ep$:
+\begin{equation}
+  \label{eq:epdeg}
+  \Ep \propto \Gamma B \gammaMin^2.
+\end{equation}
+It is not possible to simply fit the value of $\Ep$ as is done with
+the Band function because of the integration over the electron
+distribution. The numerical integration is done in two steps for each
+part of the electron distribution:
+\begin{eqnarray}
+  \label{eq:n}
+  \Fv^{\rm thermal}=n_0\int_1^{\gammaMin} d\gamma\; n_e^{\rm thermal}(\gamma)\mathcal{F}\left(\dover{\mathcal{E}}{E_c(\gamma)} \right)\\
+\Fv^{\rm power-law}=n_0\int_{\gammaMin}^{\infty} d\gamma\; n_e^{\rm power-law}(\gamma)\mathcal{F}\left(\dover{\mathcal{E}}{E_c(\gamma)} \right)\\
+\Fv = \Fv^{\rm thermal} + \Fv^{\rm power-law}.
+\end{eqnarray}
+Therefore, the value of $\gammaMin$ must be specified even though
+there is no way to determine its actual value. For this reason, $\Ep$
+is broken into two parts:
+\begin{equation}
+  \label{eq:estar}
+  \Ep = E_*\gammaMin^2
+\end{equation}
+and the value of $E_*$ is used to scale the energy of the $\vFv$ peak
+during fitting. It is not possible to leave both $E_*$ and $\gammaMin$
+free during the fit because both parameters scale $\Ep$ but do not
+alter the shape of the spectrum independently (see \figureref{fig:scalep}). 
+\begin{figure}[t]
+  \centering
+  \subfigure{
+    \cfig{11}{gMin.pdf}{3.2}\cfig{11}{eCrit.pdf}{3.2}}
+
+  
+\caption{The slow-cooled synchrotron spectrum as a function of
+  $\gammaMin$ (\emph{left}) and varying E$_*$ (\emph{right}). While
+  the amplitude and $\vFv$ peak of the spectrum are altered, the
+  overall shape remains the same.}
+  \label{fig:scalep}
+\end{figure}
+In this work, $\gammaMin$ was chosen to be fixed and the value of
+$E_*$ left free. The values of $E_*$ and $\gammaMin$ are not
+independently physical for this reason, and only the value of $\Ep$
+can be used to make inferences about physical parameters. Estimations
+of $\gammaMin$ can be made from very general considerations about
+shock acceleration theory. The total amount of energy dissipated by shocks into the electrons is
+\begin{equation}
+  \label{eq:gammamin}
+  \int_{\gammaMin}^{\infty}d\gamma\; n_e(\gamma)(\gamma-1) = \xi \Gamma \epsilon_e \dover{m_p}{m_e}
+\end{equation}
+where $\xi$ is an unknown parameter characterizing the efficiency of
+mildly-relativistic shocks. Solving this for $\gammaMin$ yields
+\begin{equation}
+  \label{eq:gminth}
+  \gammaMin \approx \dover{\delta - 2}{\delta -1}\epsilon_c \dover{m_p}{m_e}.
+\end{equation}
+The maximum value of $\gammaMin\approx (m_p/m_e)\approx
+1,800$. Therefore, we set $\gammaMin=900$ in the fits.
+
+The value of $\gamth$ has to be fixed in the fits as well. Simulations
+of relativistic shocks have shown that the ratio
+$\gammaMin/\gamth\approx 3$ and therefore $\gamth=300$ is the value
+chosen for the fits. In \sectionref{sec:epsdisc} the choosing of the highly
+unconstrained value of $\epsilon$ is discussed. With these values set,
+a tractable parametrization of the slow-cooled synchrotron model is
+available.
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

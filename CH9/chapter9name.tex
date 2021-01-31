@@ -1,0 +1,234 @@
+\chapter{A New Correlation Between Thermal and Non-Thermal Emission in Gamma-Ray Bursts} 
+\label{ch:cor}
+\begin{chapterquote}{Mark Twain}
+Such is professional jealousy;\\ a scientist will never show any kindness\\ for a theory which he did not start himself.
+\end{chapterquote}
+
+\section{Introduction}
+
+Gamma-ray bursts (GRBs) are believed to be the death of super massive
+stars or the coalescence of two compact objects resulting in an
+explosive, relativistic outflow. The energy of the outflow is
+dissipated into the particles of the plasma which then radiate this
+energy in the form of $\gamma$-rays. While numerous theories exist to
+explain GRB formation and emission, a key question is how the energy
+of the outflow is distributed, i.e., whether or not the energy is in
+the magnetic field or as a baryon kinetic energy, and how this energy
+distribution evolves with time. This question is particularly hard to
+address because of the unknown progenitor source of these events and
+the fact that prompt GRB observations consist of time-resolved
+$\gamma$-ray spectra that have been historically described with the
+empirical Band function
+\cite{band:1993,Kaneko:2006,Goldstein:2012}. The standard
+interpretation of the prompt gamma-ray emission of GRBs requires a
+highly-relativistic, jetted fireball that has become
+optically-thin. While the emission from this fireball is expected to
+be thermal \cite{Goodman:1986,Paczynski:1986}, observations of the
+prompt emission over the past two decades have been found to be highly
+non-thermal
+\cite{Mazets:1981,Fenimore:1982,matz,Kaneko:2006,Goldstein:2012}. Recent
+analysis of new data collected by the {\it Fermi} Gamma-ray Space
+Telescope found that the emission spectra contain at least two
+components, the original non-thermal component, and sub-dominant
+thermal component fit with a blackbody
+\cite{Guiriec:2010,Axelsson:2012}. This component has been
+speculatively linked to the fireball photosphere of the GRB. The
+temporal evolution of the thermal component has been shown to follow
+what would be expected for an expanding photosphere and is separate
+from the evolution of the non-thermal component.
+
+In this work we fit the non-thermal component with a synchrotron
+photon model and the thermal component with a blackbody developed in
+\cite{Burgess:2012,Burgess:2013}. We find that the peak energies of
+the two components are highly correlated across all the GRBs in our
+sample. Such a correlation points to a scaling parameter common among
+GRBs which we will show is related to the magnetic and kinetic energy
+content of the GRB jet.
+
+\section{Observations}
+In this work, seven long and bright {\it Fermi} GRBs were selected
+that consist of single pulses in their broad-band $\gamma$-ray time
+histories (see \tableref{tab:epktcor}). While this sample is limited
+by the number of bright, single-pulsed GRBs in the {\it Fermi} data
+set, the fine-time resolved spectroscopy used to analyze these GRBs
+allows for a detailed understanding of the evolution of the thermal
+and non-thermal components. All the GRBs contained significant,
+sub-dominate thermal components in their $\gamma$-ray spectra as shown
+in \cite{Burgess:2013,preece:2013}. Single pulse GRBs have been shown
+to have simple spectral evolution and provide the cleanest signal for
+fitting physical models directly to the detector count data
+\cite{Burgess:2013,Burgess:2012,Ryde:2009}.
+
+\begin{figure}[t]
+  \centering
+  \cfig{9}{spectrum.pdf}{4.5}
+  \caption{The evolving $\vFv$ spectrum of GRB 130427A. The blackbody component evolves from yellow to red and the synchrotron component evolves from cyan to blue.}
+  \label{fig:newSpec}
+\end{figure}
+
+To perform time-resolved spectral analysis, each GRB lightcurve was
+divided into time bins using a Bayesian blocks algorithm
+\cite{Scargle:2013} and each bin's spectrum was fit with a
+synchrotron+blackbody photon model using the GRB analysis software
+RMFITver4.3 (see \figureref{fig:newSpec}). The synchrotron model consists of a
+shock accelerated electron distribution containing a relativistic
+Maxwellian and a high-energy power-law tail that is convolved with the
+standard synchrotron kernel
+\cite{Burgess:2013,Burgess:2012,rybicki:1979}. The spectra were all
+well fit by the synchrotron model with fits that were as good if not
+better than those made with the Band function.
+
+
+
+\section{A Correlation Between Spectral Components}
+A strong, positive correlation exists between the peak energies of the
+blackbody and synchrotron components (see \figureref{fig:epktcor}). The correlation
+was tested with the Spearman's Rank-Order Correlation test, obtaining
+a correlation coefficient of $\rho=0.83$ and a p-value of 4.35$\times
+10^{-20}$. Tests were carried out to check for a fitting correlation
+between the two component peaks and it was found that only a slight,
+negative fitting correlation exists.
+
+
+\begin{figure}[t]
+  \centering
+  \cfig{9}{correlation}{6}
+  \caption{The correlation between $\Ep$ and kT.}
+  \label{fig:epktcor}
+\end{figure}
+
+\begin{table}[t]
+
+\centering
+\begin{tabular}{l || c | c }
+ 
+  &            PL Index  &    F$_{BB}$/F$_{tot}$\\
+\hline\hline\\
+  GRB 081224A  &	$1.01   \pm	0.14	 $ &      0.29\\
+  GRB 090719A   &	$2.33   \pm	0.27	 $ &      0.27\\
+  GRB 100707A  &	$1.77	\pm	0.07	 $ &      0.33\\
+  GRB 110721A &	$1.24	\pm	0.11	 $ &      0.01\\
+  GRB 110920A                    &	$1.97	\pm	0.11	 $ &      0.39\\
+  GRB 130427A & 	$1.02	\pm	0.05	 $ &	  0.22\\
+  
+
+
+\end{tabular}
+\caption{Correlation fit values and flux ratios for each GRB.}
+\label{tab:epktcor}
+\end{table}
+
+Of these GRBs, the redshift is known only for GRB 130427A. Since both
+values in Figure 2 are energies, shifting to the rest frame would
+shift both values of each GRB equally, moving the GRBs along the
+correlation but not changing the slope of the correlation. It is
+possible that the correlation is tighter in the rest frame but a
+greater sample of single pulse GRBs with redshifts is required to
+check this assumption. The correlation (\figureref{fig:epktcor}), fit
+with a power-law, has a slope $1.26\pm0.03$. We also fit power laws to
+the $E_{\rm p}$, kT pairs of the individual GRBs and find dependencies
+ranging from $T^{\sim 1}$ to $T^{\sim 2}$ (see
+\tableref{tab:epktcor}). The ratio of the blackbody flux to the total
+flux was computed for each burst. No correlation between the
+correlation index and flux ratio was found.
+
+\section{Interpretation}
+
+A simple model which can interpret these observations is a dissipative
+photosphere model \cite{Giannios+07photspec} with general
+dynamics. The jet dynamics are parametrized by the dependence of the
+Lorentz factor on the radius as $\Gamma\propto R^\mu$ until the jet
+reaches its saturation Lorentz factor, $\eta=L/\dot{M}c^2$, where L is
+the luminosity and $\dot{M}$ the mass outflow rate. This will be
+approximately the jet's Lorentz factor until it reaches the
+deceleration radius. For magnetically dominated jets $\mu\approx 1/3$
+\cite{Drenkhahn02}, in the baryonic case $\mu\approx1$. The values in
+between correspond to a mix of these components \cite{Veres+12fit},
+and can be further modified by e.g. the topology of the magnetic
+field.
+
+The photosphere will occur where the optical depth of the jet is
+unity. This can happen above or below the saturation radius
+\cite{Meszaros+93gasdyn}, and accordingly we have two cases.
+
+Closely above the photosphere, instabilities in the flow or magnetic
+field line reconnections can lead to mildly relativistic shocks and
+accelerate leptons which in turn emit synchrotron radiation
+\cite{Meszaros+11gevmag,McKinney+11switch}. To interpret the observed
+correlation we restrict the discussion to the dependence of the peak
+on the main physical parameters such as the luminosity ($L$), the
+coasting Lorentz factor ($\eta$) or the launching radius ($r_0$).
+
+The peak of the synchrotron component is proportional to the Lorentz
+factor close to the photosphere, the magnetic field strength and the
+random Lorentz factor of the electrons. The magnetic field strength is
+usually taken as bearing some fraction $\epsilon_B\sim {\rm const}$ of
+the total kinetic energy. The temperature of the photosphere depends
+on the luminosity and the photospheric radius.  We derive the
+photospheric radius and express other quantities at this radius and
+get:
+
+
+\begin{equation}
+E_p \propto \left\{
+\begin{array}{ll}
+  L^{\frac{3\mu-1}{4\mu+2}} \eta^{-\frac{3\mu-1}{4\mu+2}}
+  r_0^{\frac{-5\mu}{4\mu+2}} 		&	{\rm if~photosphere~in~ acceleration~ phase}\\ 
+  L^{-1/2} \eta^{3} %r_0^{0}
+   	&	{\rm if~photosphere~in~  coasting~ phase} 
+\end{array}
+\right.
+\label{eq:ebreak}
+\end{equation}
+
+
+\begin{equation}
+T \propto \left\{
+\begin{array}{ll}
+  L^{\frac{14\mu-5}{12(2\mu+1)}} \eta^{\frac{2-2\mu}{6\mu+3}}
+  r_0^{-\frac{10\mu-1}{6(2\mu+1)}} 	&	{\rm if~photosphere~ in~acceleration~ phase}\\ 
+  L^{-5/12} \eta^{8/3} r_0^{1/6}  	&	{\rm if~photosphere~ in~ coasting~ phase} 
+\end{array}
+\right.
+\label{eq:temp}
+\end{equation}
+
+
+It is hard to assess which quantity drives the above dependencies for
+either the accelerating or the coasting phase photosphere, or the fact
+that it is a single quantity.  One natural assumption is to consider
+the luminosity as the main reason for the change in $E_p$ and $T$ as
+the flux changes in these bursts.
+
+\begin{itemize}
+\item In the accelerating photosphere case, considering the
+  appropriate powers of $L$ we get $E_p \propto
+  T^{\frac{6(3\mu-1)}{14\mu-5}}$. The exponent is singular at
+  $\mu\approx0.36$, but for values up to $\mu < 0.6$ (these are
+  the values of $\mu$ for which the photosphere will occur in the
+  acceleration phase) we are able to explain exponents from 2 down to
+  1.4.
+
+\item For a coasting photosphere $E_p \propto T^{1.2}$. This is
+  observed in some bursts. We get similar results if we vary $\eta$.
+
+\end{itemize}
+
+The analysis of the bursts in the framework of this model can
+suggestively identify whether the photosphere is in the acceleration
+or coasting phase, which in turn can be translated to the composition
+of the jet.  We find that for exponents close to 2 the jet dynamics is
+dominated by the magnetic field.  Exponents close to 1 are suggestive
+of baryonic jets. Our sample spans the values of this model indicating
+that the energy content of these GRBs varies from event to event. This
+simple method allows for a direct way to assess fundamental properties
+of GRBs that have not been previously available through observations.
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

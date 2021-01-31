@@ -1,0 +1,191 @@
+\chapter{Justification of the Synchrotron Parameters}
+\label{ch:pap2app}
+\section{Synchrotron-Shell-Model Constraints}
+Broad ranges of parameter values are possible in a GRB colliding shell
+model. Here we justify the values used to fit the {\it Fermi} GBM and
+LAT GRBs, assuming that the bright keV -- MeV emission of the GRBs in
+our sample is primarily nonthermal synchrotron radiation emitted by
+nonthermal electrons with an isotropic pitch-angle distribution that
+radiate in a spherical shell expanding at relativistic speeds, within
+which is entrained randomly directed magnetic field on coherence
+length scales small in comparison with the shell volume. For
+additional considerations about synchrotron models, see
+\cite{2013ApJ...769...69B}.
+
+
+The constraints that we consider are (1) particle and magnetic-field
+energetics; (2) a negligible synchrotron self-Compton (SSC) component
+so that we can neglect any high-energy $\gamma$-rays that could be
+absorbed through $\gamma\gamma$ pair production and make additional
+radiation at energies where the data are fit; (3) small synchrotron
+self-absorption; and (4) minimum bulk Lorentz factor $\Gamma_{min}$ to
+avoid strong $\gamma\gamma$ opacity. We also examine (5) the criterion
+for being in the strong cooling regime.  To suppress SSC, we focus on
+magnetically dominated models, which are also required in some
+theories of GRBs to trigger magnetic reconnection events and produce
+the prompt GRB emission through synchrotron emission
+\cite{2009JPhCS.189a2018G,zhang:2011}. Magnetically
+dominated GRB synchrotron models are also required for efficient
+acceleration of ultra-high energy cosmic rays
+\cite{2010OAJ.....3..150R}.
+
+
+Our fiducial parameters are: characteristic electron Lorentz factor
+$\gamma^\prime = 10^3 \gamma^\prime_3$; bulk Lorentz factor $\Gamma =
+300\Gamma_{300}$, and fluid magnetic field $B^\prime = 10^5
+B^\prime_5$ G. Radiation with characteristic $\nu F_\nu$ peak
+frequency $\nu_{obs} = m_ec^2 \epsilon /h(1+z)$ is observed during the
+prompt phase of the GRB. If non-thermal lepton synchrotron radiation,
+then $\epsilon \cong 3\Gamma B^\prime \gamma^{\prime 2}/2B_{cr}$, and
+$z$ is the source redshift, so $B_5^\prime \cong \epsilon/\Gamma_{300}
+\gamma_3^{\prime 2}$.
+
+
+
+\subsection{Energetics}
+The electron energy content $\epsilon_e^{(\prime)}$ in the source
+(comoving) frame is given by $\epsilon_e^\prime = \epsilon_e/\Gamma =
+N_{e0}\gamma^\prime m_ec^2$, where $N_{e0}$ is the number of
+electrons, so that
+\begin{equation}
+\epsilon_e = {\epsilon_{par}\over 1+\zeta}
+ = 
+{6\pi m_ec L_{syn}\over \sigma_{\rm T} B^{\prime 2} \gamma^\prime \Gamma^2}
+=
+\,{27 \pi m_ec L_{syn}\over 2  \sigma_{\rm T} B_{cr}^2 \epsilon^2}
+\,\Gamma\gamma^{\prime 3}
+ \cong 
+10^{45} \, {L_{51} \Gamma_3 \gamma_3^{\prime 3}\over \epsilon^{2}}\;\;{\rm erg}\;, 
+\label{Epar}
+\end{equation}
+where the total particle energy is denoted $\epsilon_{par} $, and
+$\zeta$ represents the additional energy in hadrons. Here the
+synchrotron luminosity $L_{syn}=10^{51}L_{51}$ erg s$^{-1}$ is derived
+from the synchrotron electron energy-loss rate formula, using
+$L^\prime_{syn} = c \sigma_{\rm T} B^{\prime 2}\gamma^{\prime
+  2}N_{e0}/6\pi$.
+
+The magnetic-field energy density $\epsilon_B = \Gamma {\cal
+  E}_B^\prime = \Gamma 4\pi r^2 \Delta r^\prime (B^{\prime 2}/8\pi)$.
+The shell width $\Delta r^\prime = k r/\Gamma$, with $k$ a factor of
+order unity (for details see \cite{2013ApJ...769...69B}), using the
+relations $\Delta r^\prime \cong \Gamma c t_{var}$ and $r \cong
+\Gamma^2 c t_{var}$, where $t_{var}$ is the measured variability time
+scale in the source frame. Thus the isotropic magnetic-field energy
+\begin{equation}
+\epsilon_{B} = {2k \Gamma^4\over 9}\, {c^3 t_{var}^3 B_{cr}^2 \epsilon^2\over \gamma^{\prime 4}} \cong 
+10^{56}  k({\Gamma_{300}\over \gamma_3^{\prime}})^4 t_{var}({\rm s})^3 \epsilon^{2}\;\;{\rm erg}.
+\label{eq:EB}
+\end{equation}
+The absolute magnetic field energy $\epsilon_{B,abs} \cong
+(\theta_j^2/2)\epsilon_{B}$ for this system greatly out of
+equipartition can be reduced to acceptable values (i.e., ${\cal
+  E}_{abs}\ll 10^{54}$ erg) with a sufficiently small jet opening
+angle $\theta_j$ between $\approx 0.01$ and $0.1$.
+
+
+\subsection{SSC Component}
+The ratio of the SSC and synchrotron luminosities is related to the
+ratio of the synchrotron and magnetic field energy densities through
+the relation $L_{SSC}/L_{syn} \lesssim
+u^\prime_{syn}/u^\prime_{B^\prime}$, with the inequality arising from
+the neglect of Klein-Nishina effects on the SSC emission.  Because
+$u^\prime_{syn} \cong L^\prime_{syn}/4\pi r^2 c$, we have
+\begin{equation}
+{L_{SSC}\over L_{syn}} \approx {2 L_{syn}\over c^3 \Gamma^6 t_{var}^2 B^{\prime 2}} \cong {10^{-5}  L_{52}\over \Gamma_{300}^6 t_{var}^2({\rm s}) B^{\prime 2}_5 } \;,
+\label{SSCsynratio}
+\end{equation}
+and so can be safely neglected here.
+
+
+
+\subsection{Synchrotron Self-Absorption}
+For a log-parabolic description of the $\gamma^{\prime 2} N^\prime
+(\gamma_p)$ electron distribution, the SSA opacity in the
+$\delta$-function approximation is given by
+\begin{equation}
+  \tau_{\epsilon^\prime} = 2\kappa_{\epsilon^\prime} \Delta r^\prime \cong {\pi \over 9}\,{\epsilon_e^\prime \Delta r^\prime\over m_ec^2 I(b) V_b^\prime \gamma_p^{\prime 4}}\, {\lambda_{\rm C} r_e\over \epsilon^\prime} (2+ b\log x)\,x^{-(4+b\log x)}
+  \equiv \tau_0 (2+ b\log x)\,x^{-(4+b\log x)}\;
+\label{tauep}
+\end{equation}
+\cite{2009herb.book.....D,2013arXiv1304.6680D}, where
+$\kappa_{\epsilon^\prime}$ is the SSA absorption coefficient (units of
+inverse length), $x \equiv
+\sqrt{\ep/2\varepsilon_B^\prime}/\g_p^\prime$, $\e \cong \Gamma\ep$,
+shell volume $V_b^\prime = 4\pi r^2 \Delta r^\prime$, and $I(b) =
+\sqrt{\pi \ln 10/b}$ normalizes the electron spectrum depending on the
+value of the log-parabola width parameter $b$.  Using \equationref{eq:EB}, we
+obtain
+\begin{equation}
+\tau_{0} \cong {\pi \over 6\e }\,{ {\lambda_{\rm C} r_e L_{syn} \over c^3 \sigma_{\rm T} B^{\prime 2} t_{var}^2 \Gamma^5 \gamma^{\prime 5} I(b)}}
+\approx {10^{-16} \over \e^3 }\,{ { L_{51} \over  t_{var}^2({\rm s}) \Gamma_{300}^3 \gamma_3^\prime I(b)}}\;, 
+\label{eq:tau0}
+\end{equation}
+using the relation $\epsilon \cong \Gamma_{300} B^\prime_5
+\gamma^{\prime 2}_3$ characterizing the condition that $x \approx 1$.
+Thus SSA is utterly negligible at $x \gtrsim 0.1$, where the question
+of SSA opacity is most important, noting from \equationref{eq:tau0} that the
+opacity can grow as fast as $x^{-4}$ at $x\approx 0.1$, when
+$b\lesssim 1$.
+
+\subsection{$\gamma$-$\gamma$ Opacity}
+The minimum bulk Lorentz factor giving a $\gamma$-ray with energy
+$\epsilon_\gamma = 1.96\times 10^{5} E_\gamma$(GeV) unit optical depth
+for $\gamma\gamma$ absorption by the target synchrotron photons is
+estimated fairly accurately by the expression
+\begin{equation}
+\Gamma \geq \Gamma_{min} = \left[ { \sigma_{\rm T} \hat\epsilon L(\hat \epsilon ) \epsilon_{\gamma}
+\over 16 \pi m_ec^4 t_{var} }\right ]^{1/6}\;,\; \hat \epsilon \cong 2\Gamma^2/\epsilon_\gamma .
+\label{tauep}
+\end{equation}
+Taking $\e L(\e) \cong 10^{51}L_{51}/\ln (100)$ erg s$^{-1}$, i.e., a
+flat $\nu F_\nu$ spectrum over 2 decades in frequency, then the
+minimum bulk Lorentz factor $\Gamma_{min} \approx 300 \,[L_{51}
+E_\gamma$(100~GeV)$/t_{var}({\rm s})]^{1/6}$.  For GRB synchrotron
+radiation emitted in the $0.1 \lesssim \epsilon \lesssim 10$ range,
+$\gamma$-rays with energies between $\approx (0.01$ --
+1)$\Gamma_{300}^2$ TeV are subject to $\gamma\gamma$ opacity.
+Provided that the energy radiated at 100 GeV and TeV energies is much
+smaller that the total GRB photon energy, opacity effects and
+cascading can be neglected.
+
+
+
+
+
+\subsection{Cooling Regime}
+
+The minimum and cooling frequencies in a colliding shell are derived
+in the same way as the case of a blast wave decelerating by sweeping
+up external medium material at a shock \cite{sari:1998}, recognizing
+that the relative Lorentz factor between two shells is more likely to
+be $\Gamma_{rel}\sim 10$, compared to the external shock Lorentz
+factor $\Gamma \sim 300$. The system is in the slow cooling regime
+when the cooling Lorentz factor
+\begin{equation}
+\gamma_c^\prime \cong {6\pi m_e c\over \sigma_{\rm T} B^{\prime 2}\Gamma t_{var} }
+\gtrsim
+\gamma^\prime_{min} \cong \epsilon_e {m_p\over m_e} f(p) \Gamma_{rel}\;,
+\label{gammaprimemin}
+\end{equation}
+where $\gamma^\prime_{min}$ is the minimum electron Lorentz factor,
+$p$ is the injection number index of relativistic electrons,
+$\epsilon_e$ is the fraction of energy dissipated at the shock that
+goes into nonthermal electrons, and the factor $f(p) = (p-2)/(p-1)$
+normalizes the number and energy of the energized electrons.  Solving
+gives
+\begin{equation}
+B^{\prime}
+\lesssim 
+\sqrt{ 6\pi m_e c (m_e/m_p)\over \sigma_{\rm T} \Gamma t_{var}\epsilon_e f(p)\Gamma_{rel} }
+\approx {120 {\rm ~G}\over \sqrt{\Gamma_{300} (\epsilon_e/0.1) t_{var}({\rm s}) f(p)\Gamma_{rel}}}\;.
+\label{gammaprimemin}
+\end{equation}
+A system with $\sim 100$ kG fields is always in the fast cooling
+regime according to this criterion.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

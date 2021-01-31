@@ -1,0 +1,1586 @@
+\chapter{Spectral Analysis of {\it Fermi} GRBs with Fast and Slow-Cooled Synchrotron Photon Models}
+\label{ch:pap2}
+\begin{chapterquote}{Dr. Dog}
+It's like that old black hole,\\
+no matter how you try,\\
+you set out each day\\
+ never to arrive
+\end{chapterquote}
+
+
+
+
+With the validity of using physical models to directly fit GRB
+spectral data established, the analysis can be expanded to a larger
+sample to allow for a categorical analysis from which physical
+implications can be derived. An important question not addressed in
+\cite{Burgess:2012} (hereafter B12) is the fast-cooling problem. The spectrum of GRB
+090820A was successfully fit with a slow-cooling model. However, GRBs
+are expected to be in the fast cooling regime. To address this a
+fast-cooling model must be tested along with the slow-cooling
+model. The analysis of \cite{Burgess:2013} focuses on these questions
+as well as looking at the physical implications of the spectral fit
+parameters. The following is an adaptation of \cite{Burgess:2013}.
+
+\begin{centering}
+
+Authors
+
+J.~M.~Burgess,
+R.~D.~Preece,
+V.~Connaughton,
+M.~S.~Briggs,
+A.~Goldstein,
+P.~N. Bhat,
+J.~Greiner,
+D.~Gruber,
+A.~Kienlin,
+C.~Kouveliotou,
+S.~McGlynn,
+C.~A.~Meegan,
+W.~S.~Paciesas,
+A.~Rau,
+S.~Xiong
+
+M.~Axelsson,
+M.~G.~Baring,
+C.~D.~Dermer,
+S.~Iyyani,
+D.~Kocevski,
+N.~Omodei,
+F.~Ryde,
+G.~Vianello
+
+\end{centering}
+
+\hspace{2 cm}
+
+\section{Model Spectral Components}
+\label{sec:model}
+
+
+
+In the fireball model of GRBs, the majority of the flux is
+theoretically expected to be in the form of thermal emission coming
+from the photosphere of the jet. However, nearly all of the low-energy
+indices implied by GRB spectral analysis with Band-function spectral
+inputs have $\alpha<+1$, i.e. too soft to be thermal -- see
+  for example \cite{Goldstein:2012} for the BATSE database.
+This points to a non-thermal emission process for most
+GRBs. Multi-spectral component analysis of {\it Fermi} GRBs has shown
+that while the majority of the emission is non-thermal, a small
+fraction of the energy radiated apparently originates from a blackbody
+component \cite{Guiriec:2010,Axelsson:2012}. In B12, a blackbody
+component was also identified when the non-thermal emission was fit
+with a synchrotron photon model. This combination of blackbody and
+non-thermal emission was predicted by \cite{Meszaros:2000}.
+In this paper, before proceeding to the details of the
+  analysis, we first review the synchrotron model (see B12), and also
+several observable relations of the blackbody component. These
+components are then implemented into a fitting program which directly
+convolves the physical models with the GBM detector response to
+compare with observations.
+
+
+
+In principle, there are six spectral parameters that can be
+constrained by the fits: $n_0$, $E_{*}$, $\delta$, $\epsilon$,
+$\gamth$, and $\gammaMin$; however, we fix $\gamth$, $\gammaMin$, and
+$\epsilon$ due to fitting correlations as explained below. The
+parameter $E_{*}$ scales the energy of the fit and is linearly related
+to the Band function's E$_{\rm p}$. Numerical simulations of particle
+acceleration at relativistic shocks have shown \cite{Baring:2004}
+that the non-thermal population is generated directly from the thermal
+one. To match these circumstances, we set the ratio of $\gamth$ and
+$\gammaMin$ to be $\sim$3, following \cite{Baring:2004}.  The
+parameters $E_*$, $\gamth$, and $\gammaMin$ all directly scale the
+peak energy of the spectrum but do not alter its shape and thus cannot
+be independently determined. For this reason we chose values of
+$\gamth=300$ and $\gammaMin=900$ for all fits and left $E_*$ free to
+be constrained from the fit.
+
+As shown in the \appendixref{ch:pap2app}, such parameter values are on the outer edge
+for what is allowed energetically.  For these parameters, the flow is
+strongly Poynting flux/magnetic-field energy dominated in order that
+electrons with $\gamma\sim 300$ -- 900 can produce radiation in the
+MeV regime.  Magnetized jet models are advantageous for energy
+dissipation through magnetic reconnection, to produce short timescale
+variability, and to accelerate ultra-high energy cosmic ray (see
+\appendixref{ch:pap2app}). In fact, a wide range of parameter values with much larger
+electron Lorentz factors and smaller magnetic fields are possible. In
+weak magnetic-field models, a strong self-Compton component and
+$\gamma\gamma$ opacity effects can make a cascade that modifies the
+standard emission spectrum of GRBs. By considering a strongly
+magnetically dominated model, these issues can be neglected.
+
+For the chosen parameters, the system is always in the strongly cooled
+regime (see \appendixref{ch:pap2app}). Nevertheless, we adopt the expression,
+\equationref{eq:elec_dist}, to approximate an electron spectrum in the
+slow-cooling regime.  The parameter $\epsilon$, corresponding to the
+relative amplitude between the thermal and non-thermal portions of the
+electron distribution, was not easily constrained in the fitting
+process used in B12 and produced small non-physical discontinuities in
+the electron distribution, as pointed out in
+\cite{Beloborodov:2012}. Therefore, here we numerically fix this
+parameter to the small value of $(\gammaMin/\gamth)^2\times
+\exp(-\gammaMin/\gamth)$, so that there is no discernible
+discontinuity between the thermal and non-thermal parts of the
+distribution. The thermal component helps smooth out the spectral
+structure at $E_{\ast}$, but does not alter the asymptotic index of
+$\alpha = 2/3$ realized for synchrotron emission from populations with
+lower bounds to their particle energies. After these simplifications,
+three shape parameters remain free: $E_{*}$, $\delta$ and $n_0$, which
+corresponds to the amplitude. Compared with the Band function's four
+fit parameters this model is simpler yet tied to actual physical
+processes.
+
+
+Even though we examine a model with $\gamma_{th} = 300$ and
+$\gamma_{min} = 900$, the spectral fitting is insensitive to the exact
+value of the product $\Gamma B\gamma^2$ provided that the constraints
+discussed in \appendixref{ch:pap2app} are satisfied. Even in a strong cooling regime
+defined by these low assumed values of $\gamma_{th}$ and $\gamma_{min}
+$, second-order processes in GRBs \cite{Waxman:1995,Dermer:2001},
+which can become more important than first-order processes in
+relativistic shocks \cite{2009herb.book.....D}, allow us to consider a
+model that is effectively slowly cooled. Simulations typically have
+more parameters than our current model
+\cite{Peer:2004,Asano:2009,Daigne:2009}, and constraining those models
+via spectral templates using data from {\it Fermi} may be difficult.
+
+
+
+\subsection{Blackbody Component}
+\label{sec:model:bb}
+The pure fireball scenario for GRB emission predicts that most of the
+flux is from thermal emission
+\cite{Goodman:1986,Paczynski:1986}. This is because as the jet
+becomes optically thin at some photospheric radius, $r_{ph}$, it
+releases radiation that has undergone many scatterings with the
+optically thick electrons below the photosphere. We model this
+emission as a blackbody
+\begin{equation}
+  \label{eq:blackbody}
+  F(\mathcal{E})\;=\;A \mathcal{E}^3 \frac{1}{ e^{\frac{\mathcal{E}}{kT}}-1}
+\end{equation}
+where A is the normalization and kT scales the energy of the
+function. This is simplified thermal emission from the photosphere
+that does not take into account the effects of relativistic broadening
+that can produce a multi-color blackbody emerging from the photosphere
+\cite{Beloborodov:2010,Ryde:2010,Peer:2011}. \cite{Ryde:2006} showed
+that if it is assumed that the thermal component is emanating from the
+photospheric radius of the jet, several properties about the blackbody
+component are derivable. The cooling behavior is well predicted for a
+thermal component. The temperature of the blackbody should decay as
+$T\propto r_{ph}^{-2/3}$. If $\Gamma$ is assumed to remain constant
+during the coasting phase of the jet then it can be shown that the
+temperature should decay as $T \propto t^{-2/3}$ in time.  It has been
+found observationally that the evolution of kT often follows a broken
+power-law trend with the index below the break averaging to $\sim
+-$2/3 \cite{Ryde:2009}. Finally, a true blackbody has a well defined
+relation between energy flux and temperature:
+\begin{equation}
+   \label{eq:sbl}
+  F_{BB}=N\sigma_{sb} T^4
+\end{equation}
+where $N$ is a normalization related to the transverse size of the
+emitting surface, $r_{ph}/\Gamma$
+\cite{Ryde:2005,Ryde:2009,Iyyani:2013}, and $\sigma_{sb}$ is the
+Stephan-Boltzmann constant.
+
+
+The photospheric radius and the transverse size of the photospheric
+emitting region are also of great importance to understanding the geometry
+and energetics of GRBs. In \cite{Ryde:2009}, a parameter
+$\mathcal{R}$ 
+\begin{equation}
+  \label{eq:scR}
+  \mathcal{R}(t)\;\equiv\;\left(\frac{F_{BB}(t)}{\sigma_{sb}T(t)^4} \right)^{1/2} \propto r_{ph}.
+\end{equation}
+is used to track the outflow dynamics of the burst (see \figureref{fig:grbjet2} for a conceptual view of $\mathcal{R}$). The connection
+between $\mathcal{R}$ and N from \equationref{eq:sbl} is established
+by noting that $N = \mathcal{R}^2$. Thereby, only if N is constant
+would we expect to recover the relation established in
+\equationref{eq:sbl}.  Several BATSE GRBs were found to have a
+power-law increase of $\mathcal{R}$ with time. However, the connection
+between $\mathcal{R}$, T, and $F_{BB}$ was difficult to establish
+because the error on the data points was large. Understanding these
+connections is essential to unmasking the structure and temporal
+evolution of GRB jets.
+
+%% Observations
+\section{Time Resolved Analysis}
+
+\label{sec:observe}
+
+\subsection{Summary of Technique}
+The GRBs in our sample were selected based on two criteria: large peak
+flux and single-peaked, non-overlapping temporal structure. The GRBs
+were binned temporally in an objective way described in
+\sectionref{sec:tbin} and spectral fits were performed on each time
+bin using four different photon models (Band, Band+blackbody,
+synchrotron, synchrotron+blackbody). When fitting synchrotron we
+compared the fits of slow-cooling and fast-cooling synchrotron. In
+many cases the fits from fast-cooling synchrotron completely
+failed. From these spectral fits a photon flux lightcurve was
+generated for each component and fitted with a pulse model to
+determine the decay phase of the pulse. We describe each step in the
+following subsections.
+
+\subsection{Sample Selection}
+To fully constrain the parameters of the fitted models, we selected
+GRBs with a requirement that the peak flux be greater than 5 photons
+s$^{-1}$ cm$^{-2}$ between 10 keV and 40 MeV. It is important for our
+GRBs to have a simple, single-peaked lightcurve structure to avoid the
+overlapping of different emission episodes. This facilitates the
+identification of distinct evolutionary trends in the physical
+parameters for the emission region. While we cannot be sure that a
+weaker emission episode does not lie beneath the main peak, the bursts
+we selected have no significant additional peak during the rise or
+decay phase of the pulse. These two cuts left us a sample of eight
+GRBs: GRB 081110A \cite{GRB081110A}, GRB 081224A \cite{GRB081224A},
+GRB 090719A \cite{GRB090719A}, GRB 090809B, GRB 100707A \cite{
+  GRB100707A}, GRB 110407A, GRB 110721A, \cite{GRB110721A} and, GRB
+110920A (\figureref{fig:lc}). GRB 081224A and GRB 110721A were both
+analyzed including the new LAT Low-Energy (LLE) data that provides a
+high effective area above 30 MeV for the analysis of short-lived
+phenomena, thanks to a loosened set of cuts with respect to LAT
+standard classes \cite{Vero:2010, Ack:2012a}. This data selection
+bypasses the typical photon classification \cite{Ackerman:2012} tree
+and includes events that would normally be excluded but can be
+selected temporally when the signal to background rate is high, such
+as with GRBs. GRB 081224A had very little data above 30 MeV but the
+LLE data helped to constrain the spectral fits. From this sample, five
+GRBs (GRB 081224A, GRB 090719A, GRB 100707A, GRB 110721A, and GRB
+110920A) had blackbody components that were bright enough to analyze
+(\tableref{tab:grbs}).
+
+
+\begin{figure}
+
+ \centering
+
+
+
+  \subfigure[]{
+
+    \label{fig:lc:a}
+    \cfig{7}{lc3}{2.5}}\subfigure[]{
+    \label{fig:lc:b}
+    \cfig{7}{lc4}{2.5}}
+  \subfigure[]{
+    \label{fig:lc:c}
+    \cfig{7}{lc5}{2.5}}\subfigure[]{
+    \label{fig:lc:d}
+    \cfig{7}{lc6}{2.5}}
+\subfigure[]{
+    \label{fig:lc:e}
+    \cfig{7}{lc7}{2.5}}\subfigure[]{
+    \label{fig:lc:f}
+    \cfig{7}{lc8}{2.5}}
+\subfigure[]{
+    \label{fig:lc:g}
+    \cfig{7}{lc9}{2.5}}\subfigure[]{
+    \label{fig:lc:h}
+    \cfig{7}{lc10}{2.5}}
+
+  \caption{The energy flux lightcurves of the synchrotron component
+    for the entire sample (\emph{black} curve). The integration range
+    is from 10 keV - 40 MeV for all GRBs except GRB 081224A and GRB
+    110721A which are from 10 keV - 300 MeV. Superimposed is the
+    slow-cooled synchrotron $\Ep$ (\emph{red} curve) demonstrating the
+    hard to soft evolution of the bursts. }
+
+  \label{fig:lc}
+
+\end{figure}
+
+
+\begin{table}
+
+\centering
+\scriptsize
+\begin{tabular}{c | c c c c}
+
+
+
+GRB & Peak Flux (p/s/cm$^2$) & Duration Analyzed (s) & Blackbody Component & LLE data\\ 
+
+\hline \hline
+
+GRB 081110A & 20.88  &  4.61 &   \text{\sffamily X}         & \text{\sffamily X}\\ 
+
+GRB 081224A & 17.11  & 18.36  & $\checkmark$ & $\checkmark$\\
+
+GRB 090719A & 26.52   & 30.09  & $\checkmark$ & \text{\sffamily X}\\
+
+GRB 090809B & 18.36  & 14.64  & \text{\sffamily X} & \text{\sffamily X}\\
+
+GRB 100707A & 18.77  & 22.39  & $\checkmark$ & \text{\sffamily X}\\
+
+GRB 110407A & 15.6  & 20.48  & \text{\sffamily X} & \text{\sffamily X}\\
+
+GRB 110721A & 29.82   & 12.7  & $\checkmark$ & $\checkmark$\\
+
+GRB 110920A & 8.08   & 238.29 & $\checkmark$ & \text{\sffamily X} \\
+
+
+
+\end{tabular}
+
+\caption{The GRBS in our sample. The peak fluxes were taken from the brightest bin of each GRB with a duration determined by Bayesian blocks.}
+
+\label{tab:grbs}
+
+\end{table}
+
+
+
+\subsection{Spectral Analysis}
+\label{sec:specan}
+For spectral fits we used the RMFIT
+ver4.1\footnote{http://fermi.gsfc.nasa.gov/ssc/data/analysis/user/}
+software package developed by the GBM team. Fitting the synchrotron
+photon model requires a custom module developed and used in B12. Each
+time bin was fit with one of the four spectral models mentioned
+above. We fit the physical models to compare the validity of each one
+against the other and the Band function to try and understand how the
+Band function parameters correlate with the best fit physical
+model. If the addition of blackbody component did not make a
+significant improvement of at least 10 units of C-stat
+\cite{Arnaud:2011} for any time bins of a particular GRB, then we did
+not include the blackbody component in the analyzed fits for that
+burst. However,
+near the end of the prompt emission in some GRBs, the blackbody
+component becomes weak but has spectral evolution consistent with more
+significant time bins in the burst. The spectral parameters of the
+blackbody in those bins were included even though they contributed
+large error bars to some quantities. We checked with simulations that
+this cut was sufficient to identify a significant addition of a
+blackbody to the fit model.
+
+
+
+\section{Results}
+\label{sec:results}
+\subsection{Test of Slow-Cooling Synchrotron}
+\label{sec:results:scs}
+
+In nearly all cases the synchrotron or synchrotron+blackbody model
+produced a fit with a comparable or better C-stat than the Band
+function. The GRBs exhibited hard to soft spectral evolution (
+\figureref{fig:specEvo}) for both components. From these fits we can
+derive several interesting properties of the bursts. The results of
+fitting the non-thermal part of each time bin in our sample with
+slow-cooled synchrotron indicate that this model can indeed fit the
+data well. The spectral parameters are summarized
+in \appendixref{ch:fitparams}.
+\begin{figure}[h]
+
+  \centering
+
+ \cfig{7}{spectrum}{5}
+
+ \caption{The spectral evolution of GRB 081224A is an example of the
+   typical evolution observed for the entire sample.  The synchrotron
+   (from \emph{light blue} to \emph{dark blue}) and blackbody (from
+   \emph{yellow} to \emph{red}) both evolve from hard to soft peak
+   energies with time. For this GRB, the high-energy power-law
+   corresponding to the electron spectral index does not evolve
+   significantly over the duration of the burst.}
+
+  \label{fig:specEvo}
+
+\end{figure}
+The C-stat fit statistic per degree of freedom was at or
+near 1 for most time bins. The spectral fit residuals cluster around
+zero, with no deviations at low-energy that might indicate the
+presence of an additional power-law component
+(\figureref{fig:counts}). The residuals are below 4$\sigma$ for the
+entire energy range. 
+\begin{figure}
+
+ \centering
+
+ \subfigure[]{
+   \label{fig:counts:a}
+  \cfig{7}{counts}{3.2}
+}\subfigure[]{
+   \label{fig:counts:b}
+   \cfig{7}{counts-1001}{3.}
+}
+
+
+
+
+
+\caption{A time bin of GRB 110721A (left panel) and GRB 100707A (right
+  panel) demonstrating typical count spectra from the sample. Two
+  extreme cases are shown: a subdominant and dominant blackbody
+  component. The response has been convolved with synchrotron
+  (\equationref{eq:synch_flux}) and a blackbody to produce counts. The
+  residuals from the fits indicate that the model is fitting the data
+  well.}
+
+\label{fig:counts}
+
+\end{figure}
+As an example, the fit C-stats for GRB 100707A
+and GRB 110721A are shown in \tableref{tab:grb1c,tab:grb2c}
+respectively. They show that the slow-cooled synchrotron model fits
+the data as well as the Band function when a blackbody is included in
+both cases. The fit C-stats for fast-cooled synchrotron are shown for
+GRB 110721A to compare all three non-thermal models. These results
+imply that slow-cooled synchrotron is a viable model for GRB prompt
+emission. We cannot claim it provides a better fit to the data than
+other untested models and we will investigate and compare other
+physical models in future work.
+
+\begin{table}[h!]
+
+\centering
+
+\begin{tabular}{c | c c c c}
+
+
+
+Time Bin & Band C-Stat & Band+BB C-Stat & Synchrotron C-stat & Synchrotron+BB C-stat \\ 
+
+\hline \hline
+
+-0.2-0.2 & 453 & 450 & 485 & 455 \\ 
+
+
+
+0.2-0.8 & 374 & 362 & 695 & 364 \\ 
+
+
+
+0.8-2.4 & 427 & 405 & 2546 & 487 \\ 
+
+
+
+2.4-3.0 & 408 & 400 & 903 & 413 \\ 
+
+
+
+3.0-4.3 & 431 & 415 & 1214 & 430 \\ 
+
+
+
+4.3-5.7 & 397 & 363 & 791 & 399 \\ 
+
+
+
+5.7-7.2 & 411 & 390 & 598 & 422 \\ 
+
+
+
+7.2-12.8 & 488 & 414 & 829 & 447 \\ 
+
+
+
+12.8-22.2 & 558 & 412 & 594 & 423 \\ 
+
+
+
+
+
+\end{tabular}
+
+
+
+\caption{The time resolved C-Stat values for GRB100707A show that while the Band function and synchrotron models combined with a blackbody function both fit the data well, the non-thermal functions fit the data very differently when not combined with a blackbody. Specifically, where the blackbody is the brightest (\figureref{fig:fluxComp:c,fig:fluxComp:d} intervals 2, 3, and 4) the Band function alone fits the data acceptably while the synchrotron model alone fits the data poorly. This shows that the flexibility of the Band function can mask the need for the blackbody component. The Band+blackbody fits actually fit the data better when the blackbody is very bright in this case. This is most likely due to the blackbody function (\equationref{eq:blackbody}) used is simplified and the actual emission may be broadened due to beaming effects that are only important to the fit when the blackbody is bright and the synchrotron fit is used. The Band function makes up for these effects by having a harder $\alpha$. We tested using an exponentially cutoff power-law combined with the synchrotron model and the fits were as good as those with the Band function. We will examine the use of a more realistic photosphere model in future work.}
+
+\label{tab:grb1c}
+
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+\begin{table}[h!]
+
+\centering
+\scriptsize
+\begin{tabular}{c | c c c c c c}
+
+
+
+Time Bin & Band C-Stat & Band+BB C-Stat & Synchrotron C-stat & Synchrotron+BB C-stat & Fast C-stat & Fast+BB C-stat \\ 
+
+\hline \hline
+
+-0.07-0.08 & 640 & 640 & 673 & 673 & 709 & 709 \\ 
+
+0.08-0.48 & 690 & 690 & 704 & 704 & 1088 & 1088 \\ 
+
+0.48-1.28 & 709 & 668 & 688 & 670 & 1654 & 957 \\ 
+
+1.28-2.78 & 887 & 761 & 838 & 770 & 1646 & 1041 \\ 
+
+2.78-3.78 & 678 & 642 & 655 & 643 & 797 & 666 \\ 
+
+3.78-5.88 & 648 & 631 & 677 & 634 & 694 & 660 \\ 
+
+5.88-7.63 & 729 & 728 & 733 & 721 & 773 & 724 \\ 
+
+7.63-12.63 & 932 & 693 & 693 & 692 & 756 & 698 \\ 
+\end{tabular}
+
+
+
+\caption{The C-stat values for GRB 110721A. The significance of the addition of the blackbody is not as large as with GRB 100707A (\tableref{tab:grb1c}) due to the weakness of the blackbody component. The fits for fast-cooled synchrotron are included to demonstrate the poor quality fits that are obtained both with fast-cooling synchrotron and fast-cooling synchrotron with a blackbody.}
+
+\label{tab:grb2c}
+
+\end{table}
+
+
+An important parameter constrained in these fits is the electron
+index, $\delta$, of the accelerated power-law. The canonical value for
+diffusive acceleration at ultra-relativistic, parallel shocks is
+$\delta$=2.2 \cite{Kirk:1987,Kirk:2000}. The distribution of
+constrained $\delta$'s (\figureref{fig:index}) is broad and centered
+around $\delta=5$ (i.e., $\beta = 3$).
+\begin{figure}[h!]
+
+ \centering
+
+  \cfig{7}{index}{4}
+
+  \caption{The distribution of electron indices from the slow-cooling
+    synchrotron fits. Only indices that were constrained are
+    plotted. The distribution is broad but centered at $\delta=$5
+    which is much steeper than expected from simple relativistic shock
+    acceleration.}
+
+  \label{fig:index}
+
+\end{figure}
+This steep index could provide
+clues for the structure and magnetic turbulence spectrum of the
+shocks. \cite{Baring:2006}, \cite{Ellison:2004} and \cite{Baring:2012}
+show that shock speed, obliquity, and turbulence all have a strong
+effect on the electron spectral index of the accelerated
+electrons. Steeper indices correspond to increasing shock obliquity in
+superluminal shocks. Fit models which are built from the electron
+distribution such as the one used in this work enable a direct
+diagnostic of the GRB shock structure.
+
+
+
+
+
+
+\subsection{Test of Fast-Cooling Synchrotron}
+\label{sec:fast}
+In order to see if any spectra were consistent with the fast-cooling
+synchrotron spectrum, we implemented a fast-cooled synchrotron model
+where the electrons were distributed according to the broken power-law
+in \equationref{eq:necool}. These apply to the ``undisturbed plasma''
+outside the shock acceleration/injection zone. As with the
+slow-cooling fits, $\gammaMin$ was held fixed to 900. Several spectra
+were tested and all resulted in very poor fits regardless of whether
+the low-energy index found with the Band function was much harder than
+$-$3/2 (\figureref{fig:fastS} and \tableref{tab:fast}). This is due to
+the broad spectral curvature of the fast-cooled spectrum around the
+$\nu F_{\nu}$ peak. 
+\begin{figure}
+
+ \centering
+
+  \cfig{7}{fast}{5}
+
+  \caption{The fast-cooled synchrotron fits are poor for nearly all of our
+    sample because none of the spectra have a low-energy
+    index as steep as $-$3/2. Therefore the fast-cooled synchrotron
+    spectrum is too broad around the $\vFv$ peak as shown in
+    this example spectrum.}
+
+  \label{fig:fastS}
+
+\end{figure}
+
+
+\begin{table}[h!]
+\scriptsize
+\centering
+
+\begin{tabular}{c | c | c c | c}
+
+
+
+Time Bin & Band $\alpha$ & Slow-cooled Synchrotron C-stat & Fast-cooled Synchrotron C-stat & $\Delta_{\rm C-stat}$ \\ 
+
+\hline \hline
+
+
+
+-5.38-2.82 & -0.9 & 523 & 599 & 76 \\ 
+
+
+
+2.82-3.84 & -0.7 & 507 & 604 & 97 \\ 
+
+
+
+3.84-4.86 & -0.8 & 506 & 596 & 90 \\ 
+
+
+
+4.86-6.91 & -1.0 & 534 & 626 & 92 \\ 
+
+
+
+6.91-9.98 & -1.1 & 591 & 639 & 48 \\ 
+
+
+
+9.98-15.1 & -1.5 & 494 & 494 & 0 \\ 
+
+
+
+\end{tabular}
+
+\caption{For each time bin of GRB 110407A we examine the C-stat value of synchrotron and fast-cooled synchrotron. This GRB did not have a blackbody in its spectrum. While the Band function and slow-cooling synchrotron fit the spectrum well, fast-cooling synchrotron does not fit the spectrum unless Band $\alpha=-1.5$. In this case, the fast-cooled synchrotron peak energy was very unconstrained due to the curvature of the data being narrower than the photon model's curvature.}
+
+\label{tab:fast}
+
+\end{table}
+
+The broken power-law nature of the electron
+distribution is smeared out by the synchrotron kernel and cannot fit
+the typical curvature of the GBM data. In fact, the fast-cooling
+synchrotron spectrum has a spectral index of $-$2/3 below the
+$\gamma_c$ which we have fixed at 1. The fitting algorithm increased
+$E_*$ to high values to align the $-$2/3 index with the data, which
+resulted in poor fits (\figureref{fig:fastComp}). Even when a
+blackbody is present in the bursts, fast-cooled synchrotron is not a
+good fit to the non-thermal part of the spectrum
+(\tableref{tab:grb2c}). The lack of GRBs with low-energy indices as
+steep as $-$3/2, additionally disfavors fast-cooled synchrotron as the
+non-thermal emission component in GRB spectra.
+\begin{figure}[h!]
+
+ \centering
+
+  \cfig{7}{fastComp}{5}
+
+  \caption{An example time bin of GRB 110407A comparing the fitted
+    $\vFv$ spectra of the Band Function (\emph{green}),
+    slow-cooled synchrotron (\emph{red}), and fast-cooled synchrotron
+    (\emph{blue}). While the Band function and slow-cooled synchrotron
+    fits resemble each other, the fast-cooled synchrotron fit is only
+    able to fit the low-energy part of the spectrum. Because
+    fast-cooled synchrotron has an index of $-$2/3 below the cooling
+    frequency, the fitting engine pushes the value of E$_*$ very high
+    to fit the low-energy part of the spectrum resulting in a $-$3/2
+    index near the $\vFv$ peak. The high-energy power-law of
+    the fast-cooling synchrotron spectrum is pushed out of the data
+    energy window.}
+
+  \label{fig:fastComp}
+
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c | c c c}
+
+Time Bin & Band-BB {\dcstat} & Synchrotron-BB {\dcstat} & Fast-BB {\dcstat} \\ 
+\hline \hline
+
+-0.07-0.08 & 0 & 0 & 0 \\ 
+
+0.08-0.48 & 0 & 0 & 0 \\ 
+
+0.48-1.28 & 41 & 18 & 697 \\ 
+
+1.28-2.78 & 126 & 68 & 605 \\ 
+
+2.78-3.78 & 36 & 12 & 131 \\ 
+
+3.78-5.88 & 17 & 43 & 34 \\ 
+
+5.88-7.63 & 1 & 12 & 49 \\ 
+
+7.63-12.63 & 239 & 1 & 58 \\ 
+
+
+\end{tabular}
+
+\caption{ The {\dcstat} values for GRB 110721A tell a different story than GRB 100707A (\tableref{tab:grb1dc}), though both GRBs show a significant improvement in the fit when a blackbody is included. Even thought the fast-cooled fits showed extreme improvement with the inclusion of a blackbody, the fits are still poor compared with the slow-cooled model (See \tableref{tab:grb2c}).}
+\label{tab:grb2dc}
+\end{table}
+
+
+\subsection{Synchrotron vs. Band}
+\label{sec:results:bvs}
+The Band function has been used in the literature as a proxy for
+distinguishing among non-thermal emission mechanisms. The predicted
+non-thermal emission of GRBs is typically characterized as a
+smoothly-broken power-law with the high-energy spectral index related
+to the index of accelerated electrons and the low-energy index related
+to the radiative emission process. Therefore, fitting a Band function
+to the emission spectrum of a GRB {\em should} serve as a diagnostic
+of the radiative process responsible for the
+emission. \cite{preece:1998} examined the BATSE GRB catalog and
+looked at the distribution low-energy indices from Band function
+fits. They found that the distribution peaked at $\alpha\approx -1$
+and that 1/3 of the fitted spectra had low-energy indices too hard for
+synchrotron radiation. The assumption is that the Band function's
+shape approximates synchrotron but has an added degree of freedom in
+the low-energy index. However, the Band function has a broader range
+of curvatures around the $\vFv$ peak allowing it the possibility to
+deviate from the shape of synchrotron above and around the $\vFv$
+peak. The synchrotron $\vFv$ peak is $\propto\gammaMin^2 B\propto
+E_*$, leading to the relation between Band and synchrotron models
+E$_{\rm p}\propto E_*$. This relationship is easily recovered from our
+sample (\figureref{fig:EpEc}). 
+\begin{figure}[h!]
+
+  \centering
+
+  \cfig{7}{EpEc}{4}
+
+  \caption{Derived values of the parameter E$_{\rm p}$ (obtained using
+    the Band function to fit GRB spectra), versus $E_*$ (obtained using
+    an optically-thin non-thermal synchrotron to fit GRB spectra).}
+
+  \label{fig:EpEc}
+
+\end{figure}
+Direct comparison of the quality of
+the fits using Band and the synchrotron model is not the goal of this
+study. Both Band and the synchrotron model fit the data well with
+their respective fit residuals not deviating more than 4$\sigma$ and
+centered around zero (\figureref{fig:counts}). It is important to
+stress that the questions being asked are does the synchrotron model
+fit the data?  and, what temporal evolution do the synchrotron
+parameters undergo?
+
+For all GRBs in our sample that include both a blackbody and
+non-thermal component we compare the photon flux (photons s$^{-1}$
+cm$^{-2}$) lightcurves (integrated from 10 keV - 40 MeV) derived from
+synchrotron fits with those derived from Band fits (
+\figureref{fig:fluxComp}). It is seen that while both methods recover
+the same total flux, the flux from the individual components is much
+better constrained when using the synchrotron model for the
+non-thermal component. This is due to the pliability of the Band
+function below E$_{\rm p}$ that is not afforded to the synchrotron
+model.
+\begin{figure}
+
+  \centering
+
+   \subfigure{
+    \label{fig:fluxComp:a}
+    \cfig{7}{10fc}{2.3}}\subfigure{
+    \label{fig:fluxComp:b}
+    \cfig{7}{11fc}{2.3}}
+  \subfigure{
+    \label{fig:fluxComp:c}
+    \cfig{7}{0fc}{2.3}}\subfigure{
+    \label{fig:fluxComp:d}
+    \cfig{7}{1fc}{2.3}}
+\subfigure{
+    \label{fig:fluxComp:e}
+    \cfig{7}{5fc}{2.3}}\subfigure{
+    \label{fig:fluxComp:f}
+    \cfig{7}{6fc}{2.3}}
+
+  \caption{A subset of flux lightcurves illustrating both the temporal
+    structure of the different components and the advantages of using a
+    physical model to deconvolve the detector response. The left
+    column contains the lightcurves using synchrotron (\emph{blue
+      thick line}) and blackbody (\emph{red thin line}) while the
+    right column contains the lightcurves made from using the Band
+    function (\emph{green thick line}) and blackbody (\emph{red thin
+      line}). The total flux lightcurve (\emph{black dotted line}) of
+    both approaches are the same. The components have a very simple
+    and constrained evolution when using synchrotron as the
+    non-thermal component. This is potentially indicative that
+    synchrotron is the actual emission mechanism and the response is
+    being properly deconvolved. In contrast, the lightcurves where the
+    Band function is used have large errors and the blackbody does not
+    have a consistent evolution.}
+
+  \label{fig:fluxComp}
+
+\end{figure}
+
+
+
+The C-stat fit values for the synchrotron model loosely correlate with
+the value of Band $\alpha$ found by fitting the same interval with the
+Band function. When Band $\alpha$ was much harder than zero, the
+synchrotron fit was poor and typically required adding blackbody to
+fit the data. The flexibility of the Band function with its low-energy
+power law creates the possibility that the index alpha of that power
+law will not accurately measure the true slope if E$_{\rm p}$ is too
+close to the low-energy boundary of GBM data. Simulated spectra using
+the Band function were created with a grid in both Band $\alpha$ and
+E$_{\rm p}$ to ensure that low values of E$_{\rm p}$ do not affect the
+reconstruction of Band $\alpha$ in our fits. It was found that Band
+$\alpha$ could be accurately measured when E$_{\rm p}$ was as low as
+$\sim$20 keV. While the asymptotic value of synchrotron is $-$2/3,
+fitting the photon model with an empirical function like Band with a
+slightly different curvature could result in measured low-energy
+indices that are different. To measure this effect, simulated
+synchrotron spectra with different $E_*$ were fit with the Band
+function. The Band $\alpha$ showed a slight dependence on the
+synchrotron peak; moving to softer values for lower $E_*$. The
+distribution of fitted Band $\alpha$ values from these simulations
+centered around $-$0.81 $\pm$ 0.1, a slightly softer value than $-$2/3
+which may explain the clustering of Band $\alpha$ at $-$0.82 in the
+GBM spectral catalog \cite{Goldstein:2012} if a majority of the
+non-thermal spectra are the result of synchrotron emission.
+
+
+
+\subsection{High-Energy Correlations}
+\label{sec:results:hec}
+There is a well-known spectral evolution in GRB pulses of $E_{\rm
+  peak}$ evolving from hard to soft (see
+\figureref{fig:lc,fig:specEvo}). This leads to two time-resolved
+correlations between hardness (measured as E$_{\rm p}$) and flux
+\cite{golenetskii:1983,Liang:1996,Ghisellini:2010}. \cite{Liang:1996}
+(hereafter LK96) showed that the hardness intensity correlation (HIC)
+which relates the instantaneous energy flux $F_{E}$ to spectral
+hardness and can be defined as
+\begin{equation}
+  F_E\;=\;F_0\left(\frac{E_{\rm p}}{E_{{\rm p},0}} \right)^q \;,
+\end{equation}
+where $F_0$ and E$_{\rm p,0}$ are the initial values at the start of the
+pulse decay phase and $q$ is the HIC index. \cite{Ryde:2001} found
+that 57\% of a sample of 82 BATSE GRBs were consistent with this
+relation. The second relation is the hardness-fluence correlation
+(HFC) which relates hardness to the time-running fluence of the
+GRB. Time-running fluence, $\Phi(t)$, is defined as the cumulative,
+time-integrated flux of each time bin in a GRB. The HFC is expressed
+as
+\begin{equation}
+  \label{eq:hfc}
+  E_{\rm p}\;=\;E_{\rm p,0}e^{-\Phi(t)/\Phi_0}\;,
+\end{equation}
+where $\Phi_0$ is the decay constant. LK96 noted that this equation is
+similar to the form of a confined radiating plasma. This should not be
+the case for optically-thin synchrotron. Upon differentiating
+\equationref{eq:hfc} it becomes apparent that the change in hardness
+is nearly equal to the energy density:
+\begin{equation}
+  \label{eq:plasma}
+  -\frac{dE_{\rm p}}{dt}\;=\;-\frac{F_{\nu}E_{\rm p}}{\Phi_0}\;\approx\;-\frac{F_E}{\Phi_0}.
+\end{equation}
+The HFC could be the result of a confined plasma with a fixed number
+of particles cooling via $\gamma$-radiation as proposed by LK96. Since
+these relations are only applicable during the decay phase of a pulse
+the value of $T_{max}$ (the time of the peak flux) from the pulse fit
+of each GRB is used as the initial point for $F_0$ and $E_{\rm p,0}$.
+
+The use of a hardness indicator is somewhat ambiguous. Historically,
+the ratio of counts in low and high-energy channels was used as a
+hardness measure. This has an advantage of being model-independent but
+suffers from the lack of information associated with the instrument
+response. High-energy photons can scatter in the detector and not
+deposit their full energy thereby artificially lowering the hardness
+ratio. LK96 used the Band function E$_{\rm p}$ to compute hardness,
+which as a deconvolved quantity is less instrument-dependent but
+introduces a model dependence. We take this approach for both the Band
+and synchrotron model fluxes. For synchrotron we use the $E_*$
+parameter as our hardness indicator. This is justified by the
+relationship between $E_*$ and E$_{\rm p}$ (see
+\sectionref{sec:results:bvs} and \figureref{fig:EpEc}).
+
+
+We compute the HIC and HFC for the synchrotron fits for each GRB in
+our sample (\figureref{fig:Epcor} and \tableref{tab:cor}). All the
+GRBs seemed to follow the HIC to some extent. We find that the HIC
+index for $E_*$ ranges between $\approx$1-2. When using the Band
+function E$_{\rm p}$ as a hardness indicator, it is expected that
+E$_{\rm p} \propto {\rm L}^{1/2} \propto F_{E}^{1/2}$, which follows
+from synchrotron theory, supposing that only the $\Gamma$ factor
+changes while the internal properties remain (however unlikely) the
+same \cite{Ghisellini:2010}. Decay behavior due to light travel-time
+effects of a briefly illuminated relativistic spherical shell varies
+according to $E_{p}\propto L^{1/3}$, that is, $q = 3$
+\cite{Kumar:2000,Dermer:2004,Genet:2009}, whereas GRB observations
+here show $L\propto F \propto E_{p}^{1.1}$ -- $E_{p}^{2.3}$
+(\tableref{tab:cor}).  Evolution of internal parameters that would
+explain the observed correlations is an open question. The synchrotron
+fits seem to obey the HFC fairly well. Owing to the large errors in
+the Band flux, fits with synchrotron are more consistent with the HFC
+and HIC than those with Band. The deviations of the data from the
+expected synchrotron HIC may be due to the fact that there are
+overlapping pulses under the main emission that alter the decay
+profile. In addition, the use of Bayesian blocks to select time bins
+ignores spectral evolution. If bins with very different E$_{\rm p}$
+are combined then it could affect the the HIC and HFC data.
+
+\begin{figure}[h!]
+
+  \begin{center}
+    \subfigure{
+      \label{fig:Epcor:a}
+      \cfig{7}{flux}{4.2}
+    }    \subfigure{
+      \label{fig:Epcor:b}
+      \cfig{7}{fluence}{4.2}
+    }
+  \end{center}  
+
+  \caption{The non-thermal emission of all of the bursts in the sample
+    loosely follow $F_E$-$E_p$ and $E_p$-fluence relations. See 
+    \tableref{tab:cor} for the numerical results. }
+
+  \label{fig:Epcor}
+
+\end{figure}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c | c c c c}
+GRB & Flux Index $q$ & $\chi^2_{red}$ & $\Phi_0$ & $\chi^2_{red}$ \\ 
+\hline \hline
+GRB 081110A & 2.32$\pm$0.4 & 0.6 & 97$\pm$23 & 0.4 \\ 
+
+GRB 081224A & 1.74$\pm$0.1 & 1.5 & 253$\pm$23 & 0.3 \\ 
+
+GRB 090719A & 1.14$\pm$0.07 & 0.98 & 245$\pm$17 & 1.2\\
+
+GRB 09080B & 1.58$\pm$0.05 & 8.0 & 188$\pm$9 & 1.0 \\ 
+
+GRB 100707A & 1.04$\pm$0.02 & 1.2 & 444$\pm$24 & 7.3 \\ 
+
+GRB 110407A & 1.72$\pm$0.20 & 0.5 & 214$\pm$32 & 4.2 \\ 
+
+GRB 110721A & 1.08$\pm$0.03 & 14.4 & 269$\pm$13 & 15.4 \\ 
+
+GRB 110920A & 1.37$\pm$0.06 & 0.5 & 669$\pm$33 & 1.2 \\ 
+
+
+
+\end{tabular}
+\caption{Sample correlations for both flux and fluence for the synchrotron component.}
+\label{tab:cor}
+\end{table}
+
+%%
+
+
+
+\subsection{Blackbody component}
+\label{sec:results:bb}
+For most of the spectra in our sample, the blackbody's $\vFv$ peak is
+below the $\vFv$ peak of the non-thermal component. There is sometimes
+a much larger change in C-stat between fits with synchrotron and
+synchrotron+blackbody than those of Band and Band+blackbody owing to
+the fact that the Band function has more freedom in the shape below
+E$_{\rm p}$ (\tableref{tab:grb1dc,tab:grb2dc}). Simulations of both
+Band and slow-cooling synchrotron were used to find the significance
+of adding a blackbody to the spectrum. As an example, the time bin
+covering 0.8 s to 2.4 s is examined here. The \dcstat between the fit
+with the Band function and the fit with Band and the blackbody is 22
+while \dcstat using the synchrotron model is 2059. 10000 simulations
+of each model were created as described in \sectionref{sec:sigtest}
+and fit with $H_0$ and $H_1$. For the Band function a p-value of
+$4\times 10^{-4}$ was obtained while the p-value of the Synchrotron
+fits was not obtainable due to CPU time constraints but is clearly
+smaller than that of the Band function. Therefore, the addition of the
+blackbody is significant.
+
+\begin{figure}[h!]
+  \centering
+  \subfigure{\cfig{7}{banddcstat}{3.2}}\subfigure{\cfig{7}{bandfracFig}{3.2}}
+  \subfigure{\cfig{7}{syncdcstat}{3.2}}\subfigure{\cfig{7}{syncfracFig}{3.2}}
+  \caption{The \dcstat distribution and cumulative distribution from
+    the Band+blackbody (\emph{top}) and synchrotron+blackbody
+    (\emph{bottom}) simulations. Two p-value levels are shown in the
+    cumulative plots indicating the classical 1$\sigma$ and 2$\sigma$
+    significance levels. The blue line indicates the fraction of the
+    distribution below the fitted \dcstat value and the red line
+    indicates the fraction above it. It can be seen that the \dcstat
+    value from the synchrotron fit is far out in the tail of the
+    distribution.}
+  \label{fig:sigtest}
+\end{figure}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c | c c}
+
+Time Bin & Band-BB {\dcstat} & Synchrotron-BB {\dcstat} \\ 
+\hline \hline
+
+-0.2-0.2 & 3 & 30 \\ 
+
+0.2-0.8 & 12 & 331 \\ 
+
+0.8-2.4 & 22 & 2059 \\ 
+
+2.4-3.0 & 8 & 490 \\ 
+
+3.0-4.3 & 16 & 784 \\ 
+
+4.3-5.7 & 34 & 392 \\ 
+
+5.7-7.2 & 21 & 176 \\ 
+
+7.2-12.8 & 74 & 382 \\ 
+
+12.8-22.2 & 146 & 171 \\ 
+
+\end{tabular}
+
+\caption{The {\dcstat} between the Band function and synchrotron model fits with and without the inclusion of a blackbody for GRB 100707A. The blackbody has a significantly larger impact on the fit when included with the synchrotron model.}
+\label{tab:grb1dc}
+\end{table}
+
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c | c c c}
+
+Time Bin & Band-BB {\dcstat} & Synchrotron-BB {\dcstat} & Fast-BB {\dcstat} \\ 
+\hline \hline
+
+-0.07-0.08 & 0 & 0 & 0 \\ 
+
+0.08-0.48 & 0 & 0 & 0 \\ 
+
+0.48-1.28 & 41 & 18 & 697 \\ 
+
+1.28-2.78 & 126 & 68 & 605 \\ 
+
+2.78-3.78 & 36 & 12 & 131 \\ 
+
+3.78-5.88 & 17 & 43 & 34 \\ 
+
+5.88-7.63 & 1 & 12 & 49 \\ 
+
+7.63-12.63 & 239 & 1 & 58 \\ 
+
+
+\end{tabular}
+
+\caption{ The {\dcstat} values for GRB 110721A tell a different story than GRB 100707A (\tableref{tab:grb1dc}), though both GRBs show a significant improvement in the fit when a blackbody is included. Even thought the fast-cooled fits showed extreme improvement with the inclusion of a blackbody, the fits are still poor compared with the slow-cooled model (See \tableref{tab:grb2c}).}
+\label{tab:grb2dc}
+\end{table}
+It was found that even when the
+difference in C-stat between Band and Band+blackbody was greater than
+the difference between synchrotron and synchrotron+blackbody fits, the
+statistical significance in the goodness of fit after the addition of
+the blackbody is high if not greater for the synchrotron+blackbody
+model for many cases. Computational time limits kept us from checking
+if the significance reached 5$\sigma$.  We now focus on the blackbody
+component that is found in the synchrotron+blackbody fits. The
+blackbody appears to have a separate temporal structure from the
+non-thermal component, typically peaking earlier in time and decaying
+before the non-thermal emission (\figureref{fig:fluxComp}).
+
+The form of the blackbody used in this work
+(\equationref{eq:blackbody}) is simplified and therefore will likely
+only approximate the true form of thermal emission from a GRB
+photosphere. Since the blackbody is weaker than the non-thermal
+(synchrotron) component in the spectrum, the effects of a broadened
+and more realistic relativistic blackbody are masked and would only
+slightly affect the fit when combined with the synchrotron
+model. However, in the case of GRB 100707A, the blackbody is very
+bright (\figureref{fig:fluxComp:c}) and subtle changes in actual shape
+of the photospheric emission become more apparent. This is reflected
+in the C-stat values in \tableref{tab:grb1c}. The Band function
+combined with the standard blackbody is a better fit than when using
+synchrotron as the non-thermal component. In this case, the Band
+function $\alpha$ is still very hard indicating that the Band function
+is making up for additional flux that the blackbody is not taking into
+account. To test this hypothesis, we fit the synchrotron model along
+with an exponentially cutoff power-law to mimic a modified
+blackbody. We found that the fits were as good as the Band function
+combined with blackbody fits indicating that when the blackbody is
+bright compared to the non-thermal emission a more detailed model of
+the photospheric emission is needed to fit the thermal part of the
+spectrum.
+
+
+The HIC index for the blackbody component is expected to be 4 provided
+N remains a constant in \equationref{eq:sbl}; however, nearly all the
+blackbodies had a HIC index of $q\sim2$ (
+\figureref{fig:kTcor}). These results confirm those of
+\cite{Ryde:2001} and \cite{Ryde:2005} who fit BATSE spectra with a
+combination of a blackbody and a power-law to account for the
+non-thermal component. \cite{Ryde:2006} describes a toy model for the
+blackbody that allows a range of temperature indices related to the
+internal structure of the photosphere that may account for these
+results. If it is assumed that the $\Gamma \propto t^{\zeta}$, i.e.,
+that the flow has a variation in entropy then we can arrive at $L_{ph}
+\propto F_{BB} \propto T^{(19\zeta -24)/3\zeta}$. the variation in
+$\zeta$ could explain the deviation from \equationref{eq:sbl} observed
+in our sample.
+\begin{figure}[t]
+\centering
+
+    \subfigure{
+      \label{fig:kTcor:a}
+      \cfig{7}{kTFlux}{4.7}}
+    \subfigure{
+      \label{fig:kTcor:b}
+      \cfig{7}{kTFluence}{4.7}}
+
+\caption{The HIC and HFC correlations for the blackbody are separate
+    from those derived from the synchrotron component. This adds more
+    evidence for the presence of the component. However, the HIC for
+    the blackbody is not q=4 as expected unless $\mathcal{R}$
+      varies as is observed.}
+\label{fig:kTcor}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c| c c c c}
+GRB & Flux Index & $\chi^2_{red}$ & $\Phi_0$ & $\chi^2_{red}$ \\
+\hline \hline
+GRB 081224A & 2.3 $\pm$ 0.3 & 1.4 & 121 $\pm$ 13 & 9 \\ 
+
+GRB 090719A & 2.8 $\pm$ 0.4 & 2.3 & 232 $\pm$ 23 & 3 \\ 
+
+GRB 100707A & 2.2 $\pm$ 0.1 & 17.4 & 319 $\pm$ 8 & 28 \\ 
+
+GRB 110721A & 1.3 $\pm$ 0.2 & 1.8 & 43 $\pm$ 3 & 5 \\ 
+
+GRB 110920A & 2.0 $\pm$ 0.1 & 0.9 & 1147 $\pm$ 21.7 & 4 \\ 
+
+
+
+\end{tabular}
+\caption{For the subset of bursts that have a strong blackbody component we compute the flux and fluence correlation for the blackbody.}
+\label{tab:bbCor}
+\end{table}
+
+Another interesting quantity that can be obtained from the blackbody
+is the HFC. All GRBs in our blackbody subset had blackbodies
+consistent with the HFC (\figureref{fig:kTcor}). The decay
+constants were all of similar value. \cite{Crider:1999} noted that
+similar values of $\Phi_0$ for non-thermal components arise as a
+consequence of a narrow parent distribution. A deeper investigation of
+a larger sample is required to assess if the same is true for the
+blackbody components.
+
+
+The temporal evolution of kT for the blackbody of each burst appears
+to follow a broken power-law (\figureref{fig:kTEvo}). The evolution
+is fit with the function derived in \cite{Ryde:2004} where we fixed
+the curvature parameter, $\delta$, to 0.15. The coarse time binning
+derived from Bayesian blocks does not allow for the decay indices to
+be constrained for all the bursts but a small subset are close to
+$-$2/3, as expected (see \tableref{tab:bbEvo}). The temporal decay
+of the blackbody is different than the power-law decay of $E_*$,
+indicating a different emission component.
+\begin{figure}[h!]
+
+  \centering
+
+  \subfigure[]{
+    \label{fig:ktEvo:a}
+    \cfig{7}{081224887-evo}{3}}\subfigure[]{
+    \label{fig:ktEvo:b}
+    \cfig{7}{090719063-evo}{3}}
+\subfigure[]{
+    \label{fig:ktEvo:c}
+    \cfig{7}{100707032-evo}{3}}\subfigure[]{
+    \label{fig:ktEvo:d}
+    \cfig{7}{110721200-evo}{3}}
+\subfigure[]{
+    \label{fig:ktEvo:e}
+    \cfig{7}{110920546-evo}{3}
+}
+
+\caption{The time evolution of kT for four of the GRBs in our
+  sample. GRB110721A is shown without a fit because the coarse time
+  binning used did not allow for constraining the fit
+  parameters. However, in \cite{Axelsson:2012}, the evolution is
+  shown to follow a broken power-law.}
+
+   \label{fig:kTEvo}
+
+ \end{figure}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l| c c c c}
+GRB & $F_{bb}/F_{syn}$ & $1^{st}$ Decay Index & $2^{nd}$ Decay Index & $\chi^2_{red}$ \\
+\hline \hline 
+
+GRB 081224A & 0.3 & -0.6 $\pm$ 0.07 & -20 $\pm$ 243 & 0.5 \\ 
+
+GRB 090719A & 0.4 & -0.1 $\pm$ 0.05 & -2.0 $\pm$ 0.7 & 11.3 \\ 
+
+GRB 100707A & 0.5 & -0.4 $\pm$ 822749 & -0.8 $\pm$ 0.03 & 22.7 \\ 
+
+%GRB110721A & 0.015 & 819.314 $\pm$ 5120492.859 & -1.432 $\pm$ 0.257 & 0.91 \\ 
+
+GRB 110920A & 0.8 & -0.3 $\pm$ 0.03 & -0.9 $\pm$ 0.04 & 2.0\\ 
+
+
+\end{tabular}
+\caption{The evolution of the blackbody follows a broken power-law. However, the coarse time bins recovered by the Bayesian blocks algorithm make it difficult to constrain the decay indices.}
+\label{tab:bbEvo}
+\end{table}
+
+The $\mathcal{R}$ parameter was observed to increase with time for all
+the GRBs (\figureref{fig:scR}). There are breaks and
+plateau in the trends that do not seem to correlate with
+the breaks observed in the evolution of kT or with the flux history of
+the blackbody. \cite{Ryde:2009} found that the evolution of
+$\mathcal{R}$ can be quite complex but mostly follows an increasing
+power-law that seems independent of the flux history even for very
+complex GRBs. For those complex GRB lightcurves, it was found that
+analyzing different intervals of the overlapping pulses yielded an HIC
+index for the blackbody of $q\sim 4$ for each interval. In those
+intervals, $\mathcal{R}$ was approximately constant indicating the
+emission size of the photosphere was constant. Owing to the small
+number of time bins, it is difficult to quantify the evolution of
+$\mathcal{R}$ for the single pulse GRBs of this study with the coarse
+time binning used, but the fact that the HIC index for the blackbodies
+differs from $q\sim 4$ and that $\mathcal{R}$ increases indicates that
+the evolution of the photosphere is very complex.
+
+
+\begin{figure}[h!]
+
+  \centering
+
+
+
+\subfigure[]{
+    \label{fig:scR:a}
+    \cfig{7}{R_0}{3}}\subfigure[]{
+    \label{fig:scR:b}
+    \cfig{7}{R_1}{3}}
+\subfigure[]{
+    \label{fig:scR:c}
+    \cfig{7}{R_2}{3}}\subfigure[]{
+    \label{fig:scR:d}
+    \cfig{7}{R_3}{3}}
+\subfigure[]{
+    \label{fig:scR:e}
+    \cfig{7}{R_4}{3}
+}
+
+
+
+
+
+\caption{The evolution of the $\mathcal{R}$ parameter is increases
+  with time and shows no relation to the photon flux of the blackbody
+  component.}
+   \label{fig:scR}
+
+ \end{figure}
+
+\section{Discussion }
+\label{sec:discussion}
+\subsection{ Importance of Fitting with Physical Models}
+
+
+By using physical synchrotron emissivities in analysis of GRB data, we
+have shown that the {\it Fermi} data are consistent with synchrotron
+emission from electrons that have not cooled (i.e, slow-cooling
+spectra) and are inconsistent with synchrotron emission from electrons
+that are cooling (fast-cooling).  The method leads to some interesting
+conclusions for empirical modeling.  There is a positive correlation
+between hard $\alpha$ and the inability of model to fit the data, but
+the low-energy index of synchrotron seems to be clustered around
+$-$0.8 rather than near the asymptotic $-$2/3 found in
+\cite{preece:1998}. Not only do the fits with Band $\alpha$ near
+$-$0.8 lead to better fits with synchrotron, but simulated synchrotron
+spectra are best fit with a Band function having $\alpha\approx -0.8$.
+
+
+Previously, GRB spectra have been successfully fitted with a thermal +
+non-thermal model by using a blackbody function combined with a Band
+function. A thermal spectral component has indeed been shown to be
+significant in several cases, foremost in GRB 100724B and in GRB
+110721A \cite{Guiriec:2011,Axelsson:2012}. The Band function in these
+fits is, however, not based on any physical arguments but is merely an
+empirical function that has a convenient parameterization. A general
+problem that arises in this type of fitting is that Band $\alpha$ and
+the strength of the blackbody component give fits with degenerate
+parameters. When the data are fit by a Band function alone, even if an
+additional component really exists in the data at lower energies, it
+may not be identified because the Band $\alpha$ can accommodate the
+additional low energy flux by changing its slope.
+
+The slow-cooling synchrotron model we use here is more restrictive
+compared to the Band function. In particular, a limit to the low
+energy slope and the curvature of the spectrum are predicted by the
+model.  We find that the spectrum below the synchrotron $\vFv$ peak is
+not always satisfactorily fit using just the synchrotron model. Except
+for extreme cases such as fast and marginally fast-cooling, which
+affect the width of the peak as much as the low-energy index, we find
+that the the low-energy photon spectrum is actually well modeled with
+a slope equal to the low-energy slope of the single particle
+synchrotron emissivity. This is only possible with very low-radiative
+efficiency if the standard GRB acceleration model described in Section
+2.1 is considered.
+
+
+In many of our fits an additional component is suggested by the
+residuals, and the simulations show that this additional component is
+statistically significant. Additional components can also be favored
+in GRB spectra fit with the Band function, but we find that the
+significance of the additional component can be greater when using
+physical synchrotron emission fits than when using Band fits. Because
+the Band function can accommodate the extra emission using a suitable
+power-law index $\alpha$, but the synchrotron function is more
+restrictive, an additional component may be more significantly
+required when using synchrotron emission for a prescribed electron
+distribution.
+
+
+
+Another point in \figureref{fig:fluxComp} is that when using the
+synchrotron model, the temporal evolution of the blackbody flux
+exhibits well-defined pulses and a spectral evolution that is clearly
+separated from the non-thermal emission. This is in contrast to the
+less smooth blackbody flux variations when using the Band function as
+the non-thermal process. This fact again reflects that the Band
+function is less restrictive than the synchrotron function and thereby
+gives rise to further scatter in the derived fluxes in the light
+curves. These results suggest that:
+\begin{enumerate}[(i)]
+ \item the synchrotron function is a good physical model to use;
+ \item the thermal component does exist; and
+ \item multi-component fitting with the Band function can be misleading.
+\end{enumerate}
+
+
+
+\subsection{Alleviating Problems with Synchrotron Models}
+\label{sec:ascp}
+The fact that the non-thermal spectra seem to be consistent with
+slow-cooled synchrotron rather than the fast-cooled synchrotron regime
+places strong constraints on the emission model of GRBs.  The
+low-energy spectral index of 11 bright BATSE GRBs fall between the
+cooled and uncooled limits \cite{Cohen:1997}.  \cite{Ghisellini:2000}
+showed that it was difficult to reconcile the implied fast-cooling
+from a comparison of cooling and dynamical timescales with the many
+GRB spectra that require a slow-cooling electron distribution, leading
+to spectral problems for the internal shock model. In \appendixref{ch:pap2app}, we
+show that a weak-cooled system requires $\lesssim 100$ G fields for
+typical bright GRBs detected with {\it Fermi}, rather than 100 kG
+fields, with typical electron Lorentz factors $\gamma^\prime \approx
+10,000$ rather than $300$.
+
+
+In our simple strong-field synchrotron model, we can neglect the
+effects of Compton cooling, which can significantly alter the value of
+the low-energy slope in certain parameter regimes
+\cite{Daigne:2011}. This could make some spectra less consistent with
+fast-cooling, but requires further study.  Klein-Nishina effects on
+Compton cooling were not considered, but in the absence of extra
+spectral components, either from SSC, hadronic emissions, or external
+Compton processes, our synchrotron study is consistent. The need for a
+slow-cooling scenario, or marginally slow-cooling system in order to
+have reasonable radiative efficiency, is obtained in external shock
+model calculations by choosing the $\epsilon_B$ parameter $\approx
+10^{-3}$ -- 10$^{-4}$ \cite{Chiang:1999}.
+
+%Neglecting Klein-Nishina effects, 
+
+The fast-cooling internal-shock scenario cannot be reconciled with our
+observations. Additionally, \cite{Iyyani:2013} found that for GRB
+110721A, the standard slow-cooling synchrotron scenario from impulsive
+energy input such as internal shocks places the non-thermal emission
+region below the photosphere. This may be understood if the electrons
+are highly radiative, yet without displaying a cooling spectrum.
+
+% CD: I found the above text to be not-so-enlightening
+
+Models with ongoing acceleration via first-order and second-order
+Fermi acceleration \cite{Waxman:1995,Dermer:2001}, or magnetic
+reconnection and turbulence models, including the ICMART model
+\cite{zhang:2011}, have the ability to balance synchrotron cooling
+with stochastic heating, or to have multiple acceleration events,
+which keep $\gamma_{\rm cool}$ above $\gammaMin$, in which case the
+spectrum would resemble a slow-cooled synchrotron spectrum.
+%The shell collision model has been questioned \cite{Kumar:2009}.
+Magnetized jet or subjet models \cite{Lazar:2009}
+can extend the non-thermal emission site far above the photosphere, and 
+relativistic MHD turbulence provides an alternative second-order mechanism
+\cite{Lyutikov:2013}.
+%which eliminates the problem mentioned above. 
+In such a scenario, the electrons cool by synchrotron, but are at the
+same time subject to ongoing acceleration, contrary to the low implied
+value of the cooling frequency. Slow-cooling or fast-heating scenarios
+explain the data much better than a fast-cooling internal-shock model,
+though the latter is more radiatively efficient.
+
+
+
+\subsection{Conclusion}
+We have demonstrated that for a set of {\it Fermi} GRBs we can fit a
+physical, slow-cooling synchrotron model directly to the data. Most of
+the fitted spectra also require a weaker blackbody component with a
+temperature that places its peak below the synchrotron $\vFv$
+peak. The temporal evolution of both radiative components shows how
+GRB jet properties change, and are free of some of the assumptions
+required when fitting GRB spectra with empirical functions. In our
+model, a disordered magnetic field is assumed, which could be shown to
+be invalid from X-ray and $\gamma$-ray polarization observations,
+which are yet inconclusive.  Several parameters in our model cannot be
+separately constrained by the fits, namely $\gamth$, $\gammaMin$, and
+B, so we focus on a highly magnetized scenario where the self-Compton
+component can be neglected.
+
+We find that the energy flux varies as the peak photon energy $E_{p}$
+of the peak of the $\nu F_\nu$ spectrum according to $E_{p}^q$, with
+$1.1 \lesssim q \lesssim 2.4$.  The dependence of $E_{p}$ is found to
+follow the exponential-decay behavior with accumulated fluence
+$\Phi(t)$ given by (\equationref{eq:hfc}), with decay constant
+$\Phi_0\approx 100$ -- $700$ phts cm$^{-2}$. (see \figureref{fig:Epcor}).
+For the GRBs where both synchrotron and blackbody components can be
+resolved, we find that their parameters follow a separate temporal
+behavior.
+
+The temporally evolving spectra were examined in terms of fast-cooling
+and slow-cooling electron distributions, considering parameters for a
+highly magnetized GRB jet.  The temporal evolution of both synchrotron
+and blackbody parameters imply that in the GRBs studied, a photosphere
+is formed below a non-thermal emitting region found at a radius
+corresponding to the characteristic internal shock scenario.  The
+electrons in the non-thermal emitting region must undergo continuous
+acceleration to produce an apparently slow-cooling synchrotron
+spectrum, which can be provided by magnetic reconnection events or
+second-order stochastic gyroresonant acceleration with MHD turulence
+downstream of the forward and reverse shocks formed in shell
+collisions.  If, on the other hand, the jet fluid is not strongly
+magnetized, then it will be radiatively inefficient and have a strong
+inverse Compton component.  The use of physical models provides
+stronger constraints on jet model parameters, and in future studies we
+can relax choices of electron Lorentz factors and magnetic fields by
+considering leptonic Compton cascading, and ultra-high energy cosmic
+rays.
+
+
+
+% In conclusion, even though the blackbody component is significant in
+
+% many cases when the Band function is used, the extra freedom in shape
+
+% given by the Band function obscures the assessment of the thermal
+
+% component.  The direct fitting of physical models thus alleviates the
+
+% problems of the Band function in explaining the physical origin of GRB
+
+% spectra.
+
+
+
+\section{Inferred GRB Jet Properties}
+The presence of the blackbody in addition the synchrotron component
+allows for the calculation of several fundamental properties of the
+GRB jet \cite{Peer:2007}. If the emission occurs at $r_s<r$ then the values of
+$r_0$, $r_{\rm ph}$, and $\Gamma$ can be infer ed from the spectral fit
+results. For each GRB in the sample that includes a blackbody, we calculate the time resolved values of each of these quantities. 
+
+\begin{figure}[t]
+  \centering
+  \cfig{7}{grbjet.pdf}{5}
+  \caption{Conceptual diagram of various GRB radii that can be derived from the spectral fits of synchrotron+blackbody.}
+  \label{fig:grbjet2}
+\end{figure}
+
+
+\subsection{Calculating $\Gamma$, $r_0$, and $r_{\rm ph}$ }
+The value of $r_0$, the base of the GRB jet, is expected to be within
+an order of magnitude of the Swarzchild radius, $r_{sc}$. To calculate
+the value of $r_0$, the value of $\mathcal{R}$ is examined in the
+region where $r_s<r_{\rm ph}$ and the value of $\Gamma$ is derived in
+terms of observed quantities. In this regime,
+\begin{equation}
+  \label{eq:rph2}
+  r_{\rm ph}=\dover{L \sigma_{\rm T}}{8 \pi \Gamma^3 m_p c^3}
+\end{equation}
+and therefore the comoving temperature is easily shown to be
+\begin{equation}
+  \label{eq:tempcalc}
+  T^{\prime}(r_{\rm ph})=\left( \dover{L}{4 \pi r_0^2 c a}  \right)^{1/4}\Gamma^{-1}\left( \dover{r_{\rm ph}}{r_s}  \right)^{-2/3}.
+\end{equation}
+To relate \equationref{eq:tempcalc} to the observations, assume that
+$L=4\pi d_L^2YF_E$ where $Y\ge 1$ is the ratio of total fireball
+energy to the energy emitted in {\gray}s, $d_L$ is the luminosity
+distance, and $F_E$ is the observed total energy flux. Combining this
+with \equationref{eq:scR} the bulk Lorentz factor can be derived in
+terms of the observations:
+\begin{equation}
+  \label{eq:blf}
+  \Gamma = \left[(1.06)(1+z)^2d_L\dover{YF_E \sigma_{\rm T}}{2 m_p c^3 \mathcal{R}}  \right]^{1/4}.
+\end{equation}
+With $\Gamma$ derived in terms of the observations, the value of $r_0$ can be found,
+\begin{equation}
+  \label{eq:r0}
+  r_0 = \dover{4^{3/2}}{(1.48)^6(1.06)^4}\dover{d_L}{(1+z)^2}\left( \dover{F_{BB}}{Y F_E} \right)^{3/2}\mathcal{R}.
+\end{equation}
+Finally, using the above derived quantities and \equationref{eq:scR}, the values of $r_{ph}$ is found to be,
+\begin{equation}
+  \label{eq:rphObs}
+  r_{\rm ph}=\mathcal{R}\dover{d_L\Gamma}{1.06 (1+z)^2}
+\end{equation}
+
+
+\subsection{Observed values of $\Gamma$, $r_0$, and $r_{\rm ph}$}
+Using \equationref{eq:blf,eq:r0,eq:rphObs}, the values of $\Gamma$,
+$r_0$, and $r_{\rm ph}$ are calculated for the sub-sample of GRBs with
+blackbodies.  The results are graphed and tabulated
+in \appendixref{ch:jetParms}. These values are for an assumed redshift
+of z=1 and Y=1,10, and 100. It possible that Y$\gg$1, scaling the
+values calculated. However, the order of magnitude of the values
+warrants a discussion. In particular, the value of $r_{\rm ph}$ is of
+great interest to investigating the nature of the synchrotron
+emission. The relation $r_{\rm ph}<r_{\rm nt}$ should hold if the
+non-thermal spectrum is optically-thin. The value of r$_{\rm nt}$ can
+be approximated by examining the cooling time of the electrons
+emitting synchrotron radiation (see \appendixref{ch:rnt}). Using the
+measured $\Ep$ the values of r$_{\rm nt}$ are calculated. As an
+example, the values of GRB 110920A are plotted here for z=1 and
+Y=1. The dotted line represents the last stable orbit of a stellar
+mass black hole.
+\begin{figure}[t]
+  \centering
+  \cfig{7}{GRB110920A_RNT_Y_1}{4}
+  \caption{The evolution of the various jet radii as a function of
+    time. The photospheric radius is shown in red, r$_0$ is indicated in green and the maximum r$_{\rm nt}$ in the blue shaded region. The dotted line indicates the last stable orbit of a stellar
+    mass blackhole.}
+  \label{fig:rnt110920}
+\end{figure}
+The results of the entire sample are in \appendixref{ch:jetParms}.
+While the values of r$_{\rm ph}$ are typically smaller than r$_{\rm
+  nt}$, some values are not. The only way to alleviate this problem is
+to assume that the electrons have already cooled and therefore $E_{\rm
+  cool} < \Ep $. This reverses the inequality in
+\equationref{eq:derv4} and allows for $r_{\rm ph}\le r_{\rm nt}$. If
+this is assumed, then the only way to have a slow-cooled synchrotron
+spectrum is if the electrons are re-accelerated.
+
+
+
+
+ 
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

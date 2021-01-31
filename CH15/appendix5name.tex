@@ -1,0 +1,55 @@
+\chapter{Derivation of Non-Thermal Emission Radius}
+\label{ch:rnt}
+
+In order to estimate the value of $r_{nt}$, we can use the non-observation of a cooling break in the synchrotron spectrum. For the following derivation, I will use the notation $x = x_n 10^n$ to scale parameters to the relevant order of magnitude.
+\begin{equation}
+  \label{eq:epsyder}
+  E_{\rm p,2}=\frac{3}{2}\frac{hqB}{m_e c}\gamma_{el}^2\frac{\Gamma}{1+z}=  B_3\gamma_{el,3}^2\frac{\Gamma_2}{1+z}\; {\rm keV}
+\end{equation}
+Synchrotron emission must occur within the dynamical time ($t_{\rm dyn} \approx \dover{R}{\Gamma c}$) of the jet. This places the
+constraint that the synchrotron cooling time ($t_{\rm cool}$) can be
+no longer than $t_{\rm dyn}$ where
+\begin{equation}
+  \label{eq:cooltime}
+  t_{\rm cool} = \dover{6 \pi m_e c}{\sigma_{\rm T} B^2 \gamma_{el} (1+Y)}.
+\end{equation}
+Let, 
+\begin{eqnarray}
+  \label{eq:derv2}
+ t_{\rm cool}=t_{\rm dyn} & &\\
+  &\Leftrightarrow & \frac{6 \pi m_e c}{\sigma_{\rm T} B^2 \gamma_{el} (1+Y)} =  \frac{R}{\Gamma c}\\
+&\Rightarrow & \gamma_{el}\equiv \gamma_{\rm cool}= \frac{6 \pi m_e c^2 \Gamma}{\sigma_{\rm T}B^2 R (1+Y)  }.
+\end{eqnarray}
+To calculate The peak energy of the electrons with this Lorentz factor, we substitute $\gamma_{\rm cool}$ into \equationref{eq:epsyder}:
+\begin{equation}
+  \label{eq:ecoolderv}
+  E_{\rm cool,2} = 5.9 \times 10^{-1} \frac{\Gamma_2^3}{B_3^3 R_{12}^2 (1+Y)^2 (1+z)} \;\;{\rm keV}.
+\end{equation}
+
+
+Since we have so-called slow-cooled synchrotron emission with no
+cooling break observed in the spectra, we will assume the $\vFv$ peak
+is occurring due to electrons of at $\gamma_{el}=\gammaMin$. Then
+using \equationref{eq:epsyder} we can solve for B,
+\begin{equation}
+  \label{eq:slvB}
+  B_3=9.2\; E_{\rm p, 2} \frac{1+z}{\gamma_{\rm min,3}^2 \Gamma_2}\;\; {\rm G}.
+\end{equation}
+Since the cooling break is not observed, it must be greater than $\Ep$ and therefore using the value of B from \equationref{eq:slvB},
+\begin{eqnarray}
+  \label{eq:derv4}
+ E_{\rm p,2} < E_{\rm cool,2} & & \\
+ &\Leftrightarrow & E_{\rm p,2}  < 5.9 \times 10^{-1}\; \frac{\Gamma_2^3}{B_3^3 R_{12}^2 (1+Y)^2 (1+z)}\\
+&\Rightarrow &  R_{12}^2 <  7.6\times 10^{-4} \; \frac{\gamma_{\rm min,3}^6 \Gamma_2^6}{E_{\rm p,2}^4 (1+Y)^2(1+z)^4}\\
+&\Rightarrow & R_{12} <  2.6\times 10^{-2}\; \frac{\gamma_{\rm min}^3 \Gamma^3}{E_{\rm p}^2 (1+Y)(1+z)^2}\;\; {\rm cm}
+\end{eqnarray}
+
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

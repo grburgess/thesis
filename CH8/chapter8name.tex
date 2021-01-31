@@ -1,0 +1,105 @@
+
+\chapter{Origin of the Hardness-Intensity Correlation via GRB 130427A}
+\label{ch:130427A}
+\begin{chapterquote}{Beastie Boys}
+{Now here we go dropping science,\\ dropping it all over}
+\end{chapterquote}
+
+
+On April 27, 2013 GBM triggered on the brightest GRB ever
+detected. The GRB was so intense that the data bus was overloaded
+during the brightest portion of the burst. In addition to being
+detected by {\it Fermi}, this burst was seen by several satellites
+enabling the measurement of a redshift of z=0.34. This measurement
+allows for the calculation of rest frame properties such as L and the
+intrinsic $\Ep$.
+
+For this analysis, only the first pulse will be studied due to its
+non-overlapping, single pulse nature that falls in line with the
+previous studies with physical modeling. The intensity of this pulse
+allows for extremely fine time-resolved spectroscopy. In
+\cite{preece:2013}, the first pulse was analyzed with both the
+Band+blackbody and synchrotron+blackbody models. However, when using
+the Band function, there was no significant detection of the
+blackbody. This finding helps illustrate the importance of using
+physical models for GRB spectral analysis.
+
+\section{Spectral Analysis}
+The intensity of this GRB allowed for the binning of the lightcurve at
+high-resolution while maintaining enough counts to perform spectral
+analysis. The time binning method chosen was constant time width bins
+of $\Delta t=0.05$s. Each bin was fit with the Band+blackbody and
+synchrotron+blackbody models as is described in \sectionref{sec:specan} (see
+\figureref{fig:specEvo130427A}). It was found that when using the Band
+function as the non-thermal component that the blackbody component was
+not significant.
+\begin{figure}[t]
+  \centering
+  \subfigure{\cfig{8}{Bandspectrum}{5.4}}
+\subfigure{\cfig{8}{Syncspectrum}{5.4}}
+\caption{Spectral evolution of GRB 130427A using the Band function
+  (\emph{top}) and the synchrotron+blackbody model
+  (\emph{bottom}). The time evolution for the non-thermal spectra is
+  from cyan to blue and from yellow to red for the blackbody.}
+  \label{fig:specEvo130427A}
+\end{figure}
+This difference in the two analysis models leads to a different
+evolution of $\Ep$ in the two models. For the Band only model, $\Ep$
+decays as a single power-law in time, $\Ep \propto t^{-0.97}$. The
+$\Ep$ of the synchrotron model evolves as a broken power-law with the
+break occurring before the peak of the emission. The index before and
+after the break are $\Ep \propto t^{-0.37\pm0.24}$ and $\Ep \propto
+t^{-1.17\pm0.04}$ respectively (see \figureref{fig:epevo130427A}).
+\begin{figure}[t]
+  \centering
+  \cfig{8}{lightcurve}{5}
+  \caption{The photon flux lightcurve of the first pulse of GRB
+    130427A. The $\Ep$ evolution of the Band function (\emph{blue})
+    and the synchrotron model (\emph{red}) is superimposed to
+    demonstrate the hard-to-soft evolution.}
+  \label{fig:lightcurve130427A}
+\end{figure}
+\begin{figure}[t]
+  \centering
+  \cfig{8}{multiRp}{5}
+  \caption{The log-log evolution of the $\Ep$ evolution of the Band
+    function (\emph{blue}) and the synchrotron model (\emph{red}).}
+  \label{fig:epevo130427A}
+\end{figure}
+\section{The  $L-\Ep$ Plane and Magnetic Flux-Freezing}
+\label{sec:fluxfrx}
+The brightness of this burst allows for the computation of the HIC in
+the rest-frame and therefore the $L-\Ep$ relation is shown in
+\figureref{fig:feep}. The values before the peak flux are plotted in
+red and those in the decay phase are in black. The break in the
+relation between the rise phase and decay phase is very prominent. The
+index of the relation if $L\propto \Ep^{1.4\pm 0.06}$. This clear
+measurement warrants a deeper investigation into the origin of the
+relation. Attempts to explain the relation (see \sectionref{sec:results:hec}) have been unsuccessful.  
+\begin{figure}[t]
+  \centering
+  \cfig{8}{corRestSyncBBRest}{6.5}
+  \caption{The $L-\Ep$ plane of GRB 130427A. The decay phase is
+    plotted in black and the rise phase in red. The fit to the decay
+    is plotted in green with the 1$\sigma$ error contour. The flux
+    freezing model described in \appendixref{ch:lep} is plotted in
+    blue.}
+  \label{fig:feep}
+\end{figure}
+However, it can be shown that a natural explanation for the relation
+can be derived if one considers magnetic flux-freezing. In this
+scenario, the flux of the magnetic field is conserved with radius,
+i.e., $BR^2\propto constant$. With this assumption it can be shown
+(see \appendixref{ch:lep}) that $\Ep\propto L^{3/2}$, consistent with
+the data of GRB 130427A.
+
+The GRBs in \chapterref{ch:pap2} have HIC indices that range from
+$\sim 1- 2.3$. Including the errors, most of these are consistent with
+the flux-freezing value of $q=-3/2$ within 2$\sigma$. Therefore, it is
+plausible that a similar mechanism is responsible for the observed
+correlation across the sample. 
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

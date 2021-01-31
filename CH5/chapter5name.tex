@@ -1,0 +1,293 @@
+\chapter{GRB Spectral Analysis}
+\label{ch:analysis}
+\begin{chapterquote}{Christopher Hitchens}
+That which can be asserted without\\ evidence,
+ can be dismissed without\\ evidence.
+\end{chapterquote}
+
+The analysis of {\it Fermi} GRB spectra via physical models will be
+performed using the aforementioned RMFIT. The description of the
+analysis will be broken into several sections to investigate different
+aspects of GRB physics. In \chapterref{ch:grb090820A}, I will test the
+validity of physical model fitting and preliminary implications of the
+spectral fits. In \chapterref{ch:pap2}, group properties from a large
+sample of GRBs will be analyzed to obtain a better understanding of
+the emission mechanisms and assess the structure of the GRB
+jet. Finally, \chapterref{ch:130427A,ch:cor} contain an analysis of
+spectral properties to build a deeper understanding of the GRB jet
+properties and evolution. The process of spectral analysis for all of
+these test is similar and will therefore be described in this chapter.
+
+
+
+
+\section{Sample Selection}
+The study of physical models in GRB spectra places severe limits on
+the sample of GRBs that can currently be studied. They must be bright
+so that the time-resolved spectra have enough counts to enable the
+fitting engine to constrain the model parameters. In addition, the
+physical models that are implemented here are derived for single zone
+emission, i.e., if two overlapping pulses are fit with one of these
+models, then it is highly unlikely the results will be valid because
+the photon spectra may contain emission from two event zones. For this
+reason only GRBs with single or non-overlapping pulses are
+chosen. There are very few GRBs in the {\it Fermi} dataset that have
+either property. Using a list of the brightest {\it Fermi} GRBs, a
+single-pulsed subset was selected. These pulses were categorized as
+single-pulsed by having a monotonic decrease in their bolometric count
+rate after the peak intensity of the pulse.
+
+The GRBs in the this study are:
+\begin{itemize}
+\item GRB 081110A
+\item GRB 081224B
+\item GRB 090719A
+\item GRB 090809A
+\item GRB 090820A
+\item GRB 100707A
+\item GRB 110721A
+\item GRB 110920A
+\item GRB 130427A
+\end{itemize}
+The GRBs will all be analyzed in a similar way with two exceptions;
+GRB 090820A will serve as a preliminary diagnostic to test the ability
+of fitting physical models to the data and GRB 130427A, due to its
+brightness and measured redshift will be analyzed in fine detail to
+explore the origins of the observed HIC.
+
+\subsection{Time Binning}
+\label{sec:tbin}
+The selection of time bins for time-resolved spectral analysis has no
+unique solution. Ideally, time bins should be as small as possible to
+capture the nuances of the evolution of the spectrum in as much detail
+as possible. However, the selection of very short time bins decreases
+the number of counts in the signal thereby reducing the ability to
+constrain fit parameters. A balance between resolution and signal
+strength must be arbitrarily made by the observer. There are three
+methods for determining time bins in GRB spectral analysis:
+\begin{itemize}
+\item constant time bin width
+\item constant signal-to-noise ratio (S/N) binning
+\item Bayesian blocks.
+\end{itemize}
+Constant time bin width binning is simply that bins are chosen with
+the same $\Delta t$ throughout the burst. This method is systematic
+and unambiguous though no guarantee can be made about the S/N being
+large enough to accommodate spectral analysis. Additionally, the bins
+can arbitrarily split or combine physical changes in the
+spectrum. Constant S/N binning combines spectra by summing signal and
+background counts starting at the beginning of a bin until a desired
+S/N is achieved. This method guarantees that the desired number of
+signal counts are present in each bin for spectral analysis. However,
+the method can arbitrarily sum together significant changes in the
+spectral evolution similar to constant time bin width binning. This
+presents a significant problem
+\begin{figure}[h]
+  \centering
+  \subfigure{\cfig{5}{constwidth.pdf}{3.2}}\subfigure{\cfig{5}{snbin.pdf}{3.2}}
+\subfigure{\cfig{5}{bblc.pdf}{3.2}}
+\caption{Example time binnings demonstrating the differences between
+  constant time width (\emph{left}), S/N (\emph{right}), and Bayesian
+  blocks (\emph{middle}).}
+  \label{fig:binmeth}
+\end{figure}
+for the study of physical emission models because it is important to
+map changes in the lightcurve to physical changes in the GRB.  For
+this work, the method of time binning chosen is Bayesian blocks
+\cite{Scargle:2013}. The Bayesian blocks algorithm selects time bins
+by looking for significant changes in count intensity. The
+significance level set is determined by a chosen Bayesian prior
+($n_{\rm cp}$) that reflects the observer's knowledge about the number
+of pulses in the count rate. It was found that setting $n_{\rm cp}=8$
+was suitable for the study of single-pulsed GRBs
+\cite{Scargle:2013}. The resulting time bins are guaranteed to have a
+uniform Poisson count rate with any subdivision of the bin up to
+the selected significance level. A key assumption in relying on
+Bayesian blocks is that the changes in the Poisson count rate of the
+source reflect physical changes in the GRB jet.
+
+
+
+\subsection{Source Selection}
+A benefit of Bayesian block binning is that a temporal source region
+can easily identified. The local background is basically a constant
+rate and can be identified as long time bin before and after the
+pulse.
+\begin{figure}[h]
+  \centering
+  \cfig{5}{bblcsource.pdf}{4}
+  \caption{An example of background and source identification in a
+    Bayesian block binned lightcurve.}
+  \label{fig:bbselection}
+\end{figure}
+With the source region identified, the background bins are selected
+and a polynomial in time is fit to the background lightcurve. From
+this point, time-resolved spectroscopy can be performed on the source
+regions.
+
+
+\section{Spectral Fitting}
+\subsection{Fit Statistic}
+Time-resolved spectral analysis of {\it Fermi} data occurs in the
+low-count regime. This is because the photon model is evaluated in
+each energy bin of the data. The classic \chisq statistic will is not
+applicable in this regime and therefore a likelihood statistic is
+required. Counts data are Poisson distributed and therefore the choice
+of a likelihood with a Poisson estimator is required. Therefore, the
+C-stat statistic is a useful choice (see \cite{Arnaud:2011}). The
+benefit of the C-stat statistic is that it asymptotes to a \chisq
+distribution in the limit of a large number of counts which provides a
+suggestive goodness of fit. The drawback of a likelihood statistic is
+that model comparison is not valid when the models are not nested. Two
+models are said to be nested if they contain the same functional form
+and parameters but one has at least one additional term e.g.,
+\begin{equation}
+\begin{array}{l}
+\displaystyle y_1=Ax^{B} \\
+\displaystyle y_2=Ax^{B}\exp(C).
+\end{array}
+\label{eq:nest}
+\end{equation}
+These two models are considered nested and the significance of the
+more complex model, $y_2$, can be assessed via a likelihood ratio test
+(LRT). For the purposes of this study, direct model comparison will
+not be possible via the LRT because none of the models that will be
+tested are nested. Even in the case of a linear addition of a second
+spectral component like the blackbody, the LRT is not valid. This is
+because when a model of the form
+\begin{equation}
+\begin{array}{l}
+\displaystyle y_1=Ax \\
+\displaystyle y_2=Ax+B,\;0\le B
+\end{array}
+\label{eq:nestlin}
+\end{equation}
+exists with the additional linear parameter is bounded by zero,
+\cite{Protassov:2002} has shown that the LRT does not yield a valid
+significance. For these reasons, testing the significance and goodness
+of fit of models requires monte carlo simulations to sample the
+probability distributions (see \sectionref{sec:sigtest}).
+
+\subsection{Forward Folding}
+\label{sec:ff}
+Spectral analysis of GBM data is possible through a process called
+forward-folding. The detected {\gray} photons are converted into
+an electrical signal by the detectors' crystals and associated
+electronics. The pulse height of the electrical signal is recorded as
+a channel energy and is related to the energy of the incident
+\gray . The association of the channel energy to the original
+photon energy is not direct. Several radiative process can occur in
+the crystal which vary the incident photon-channel
+energy association non-linearly. This makes directly determining the
+initial energy of a given photon impossible. The non-linear channel to
+energy relationship is expressed through a response matrix.
+\begin{figure}[h]
+  \centering
+  \cfig{5}{rspMat.pdf}{4.}
+  \caption{An NaI response matrix from
+    GBM.}
+\end{figure}
+This matrix is created from monte carlo simulations of the GBM
+detectors exposed to different simulated photon energies. The
+conversion of the input energy into a detector channel energy can be
+represented as a matrix ($D_{ij}$). The input photon model
+($f_i$) and background spectrum (${b_i}$) are related to the
+detected count spectrum (${c_i}$) via a linear system.
+\begin{equation}
+\label{eqn:folding}
+c_i\;=\;D_{ij}f_j+b_i
+\end{equation}
+In general, $D_{ij}$ is highly singular and therefore the equation is
+non-invertible to obtain $f_i$. The process of forward folding
+involves starting with a proposal spectrum $f^{\prime}_i$ and solving
+for $c^{\prime}_i$. This is compared to the actual detected count
+rate. The photon model will have adjustable parameters such as a
+photon index that can be varied. This process is iterated, varying the
+spectral parameters of the model until $c^{\prime}_i$ agrees with
+$c_i$ via the Levenberg-Marquardt algorithm until C-stat is
+minimized. Once the routine is complete, the $f_i$ for describing the
+data is obtained along with statistical constraints on the model
+parameters.
+
+\section{Significance Testing}
+\label{sec:sigtest}
+The historical, single-component view of GRB spectra has been shown to
+be inadequate in more recent studies. The presence of the blackbody in
+several GRBs has modified this canonical view. Many spectra appear to
+be better fit by the addition of the blackbody to the non-thermal
+(Band or physical) photon model. However, this addition must be shown
+to be a \emph{significant} improvement to the fit. The LRT with C-stat
+is not viable for testing significance; therefore, monte carlo
+simulations are required to assess the probability distributions. The
+specific tests will be discussed when required
+in \sectionref{sec:results:bb}, but the general details will be shown
+here.
+
+When a time bin is found to contain a blackbody in addition to its
+non-thermal component by having a lower C-stat when fit with a
+non-thermal+blackbody model, a simulation file is created. This
+simulation file contains a set number of simulated spectra. These
+spectra consist only of the non-thermal model with the fit parameters
+fixed to the values derived from the data. The bins all contain a
+different random background with a rate sampled from Poisson
+distribution with a mean taken from the actual data. The bins in each
+file are fit with both the simple model corresponding to the null
+hypothesis ($H_0$) and the non-thermal+blackbody corresponding to the
+proposal hypothesis ($H_1$). Each series of fits is saved to a file
+that includes the fit parameters and the C-stat from each fit. To
+assess the distribution of \dcstat the \dcstat for each simulated fit
+is calculated. The significance of the blackbody ($\sigma_{\rm BB}$)
+component is then calculated by determining the fraction of the
+simulated distribution that lies below the value of \dcstat.
+\begin{equation}
+  \label{eq:sigtest}
+  \sigma_{\rm BB}=\dover{\sum_i p(i)\ge {\rm data}\;\Delta_{\rm cstat} }{\sum_i p(i)< {\rm data}\;\Delta_{\rm cstat}}
+\end{equation}
+where $p(i)$ is the simulated \dcstat distribution. From this value,
+the significance of the blackbody component can be ascertained. The
+canonical assignment of $\sigma$ values (corresponding to the standard
+deviation of the normal distribution) from the p-value is not always
+valid using the method above. The distributions of \dcstat are not
+necessarily symmetric. Therefore, the quoting of the p-value is more
+appropriate. The monte carlo simulations to assess significance are
+extremely CPU intensive when using physical models. The significance
+level is often limited by the number of simulations that can be run.
+
+\section{Summary of Fitting Procedure}
+For each GRB in the sample a standard analysis procedure is applied
+except for the caveats in the analysis of GRB 080920A and GRB
+130427A. The procedure for analysis is as follows:
+\begin{enumerate}[(i)]
+\item a custom Bayesian blocks algorithm is applied to the TTE file of
+  brightest NaI and BGO detector and the time bins are mapped to all
+  detectors used
+\item a background fit is applied to all detectors by selecting the
+  Bayesian block plateau before and after the pulse
+\item each time bin is fit with the Band, Band+blackbody, synchrotron,
+  synchrotron+blackbody, fast-cooled synchrotron, and fast-cooled
+  synchrotron+blackbody
+\item if the fit is successful, the fit parameters are recorded in an
+  FITS file
+\item the FITS file is fed into a pipeline that calculates the
+  following parameters from the fit parameters:
+  \begin{itemize}
+  \item the bolometric photon and energy flux of each spectral component
+  \item $r_{\rm ph}$, $r_o$, $r_{\rm nt}$, and $\Gamma$
+  \item HIC and HFC for each component.
+  \end{itemize}
+
+\end{enumerate}
+Fits that fail in RMFIT either due to the inability to constrain the
+fit parameters or due to instabilities in converging to a minimum are
+not recorded. This is the case for most fits using the fast-cooled
+synchrotron model.
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 
+%
+% Move this... but where?
+%
+
+
+

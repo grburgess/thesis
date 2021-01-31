@@ -1,0 +1,493 @@
+\chapter{GRB 090820A: A Case Study}
+\label{ch:grb090820A}
+\begin{chapterquote}{Henry Rollins}
+You need a little bit of insanity\\
+to do great things
+\end{chapterquote}
+
+The following is adapted from \cite{Burgess:2012}. GRB 090820A serves
+a case study for the testing of the slow-cooled synchrotron photon
+model on a single pulse GRB. This analysis was performed to test
+physical modeling on a GBM GRB before a systematic analysis was
+performed on a larger sample. The analysis here varies from
+standardized analysis that will was performed the larger sample in
+several ways:
+\begin{itemize}
+\item time binning was made by the S/N method to ensure constrained fits
+\item only select time bins were analyzed to examine the evolution of
+  fit parameters
+\item the slow-cooled synchrotron model parameter $\epsilon$ was left free during the fits
+\item no inferred properties were calculated from the spectral fits.
+\end{itemize}
+
+
+
+
+% \shorttitle{Constraints on the Synchrotron Shock Model}
+% \shortauthors{J.~Michael Burgess et al.}
+
+
+
+
+% \title{Constraints on the Synchrotron Shock Model for the Fermi GBM Gamma-Ray Burst 090820A}
+
+
+% %%Authors            
+              
+% \author{J. Michael Burgess,\altaffilmark{1}, 
+% Robert~D.~Preece\altaffilmark{1},
+% Matthew~G. Baring,\altaffilmark{2},
+% Michael~S.~Briggs\altaffilmark{1}, 
+% Valerie Connaughton,\altaffilmark{1},
+% Sylvain Guiriec,\altaffilmark{1} 
+% William S.~Paciesas\altaffilmark{1}, 
+% Charles A.~Meegan\altaffilmark{3}, 
+% P.~N. Bhat\altaffilmark{1}, 
+% Elisabetta Bissaldi\altaffilmark{4}, 
+% Vandiver Chaplin\altaffilmark{1}, 
+% Roland Diehl\altaffilmark{4}, 
+% Gerald~J.~Fishman\altaffilmark{5}, 
+% Gerard Fitzpatrick\altaffilmark{6}, 
+% Suzanne Foley\altaffilmark{6},
+% Melissa Gibby\altaffilmark{7}, 
+% Misty Giles\altaffilmark{7},
+% Adam Goldstein\altaffilmark{1}, 
+% Jochen Greiner\altaffilmark{4}, 
+% David Gruber\altaffilmark{4}, 
+% Alexander J.~van der Horst\altaffilmark{3}, 
+% Andreas von Kienlin\altaffilmark{4}, 
+% Marc Kippen\altaffilmark{8}, 
+% Chryssa Kouveliotou\altaffilmark{5}, 
+% Sheila McBreen\altaffilmark{6}, 
+% Arne Rau\altaffilmark{4}, 
+% Dave Tierney\altaffilmark{6}, and 
+% Colleen~Wilson-Hodge\altaffilmark{5}}              
+              
+% %%Affiliations
+% \altaffiltext{1}{University of Alabama in Huntsville, 320 Sparkman Drive, Huntsville, AL 35899, USA}
+% \altaffiltext{2}{Department of Physics and Astronomy, MS 108,
+%       Rice University, Houston, TX 77251, U.S.A.  {\it Email: baring@rice.edu}}
+% \altaffiltext{3}{Universities Space Research Association, 320 Sparkman Drive, Huntsville, AL 35899, USA}
+% \altaffiltext{4}{Max-Planck-Institut f$\rm \ddot{u}$r extraterrestrische Physik (Giessenbachstrasse 1, 85748 Garching, Germany)}
+% \altaffiltext{5}{Space Science Office, VP62, NASA/Marshall Space Flight Center, Huntsville, AL 35812, USA}
+% \altaffiltext{6}{School of Physics, University College Dublin, Belfield, Stillorgan Road, Dublin 4, Ireland}
+% \altaffiltext{7}{Jacobs Technology}
+% \altaffiltext{8}{Los Alamos National Laboratory, PO Box 1663, Los Alamos, NM 87545, USA}              
+% %\altaffiltext{1}{Physics Department, The University of Alabama in Huntsville,
+% %              Huntsville, AL 35809, U.S.A.  {\it Email: james.burgess@nasa.gov, rdp}}
+
+
+% \email{james.m.burgess@nasa.gov}
+
+
+
+%%Observations
+\section{Observations}
+ \label{sec:observe}
+\begin{centering}
+
+Authors
+
+J. Michael Burgess, Robert~D.~Preece, Matthew~G. Baring,
+Michael~S.~Briggs, Valerie Connaughton, Sylvain Guiriec, William
+S.~Paciesas, Charles A.~Meegan, P.~N. Bhat, Elisabetta Bissaldi,
+Vandiver Chaplin, Roland Diehl, Gerald~J.~Fishman, Gerard Fitzpatrick,
+Suzanne Foley, Melissa Gibby, Misty Giles, Adam Goldstein, Jochen
+Greiner, David Gruber, Alexander J.~van der Horst, Andreas von
+Kienlin, Marc Kippen, Chryssa Kouveliotou, Sheila McBreen, Arne Rau,
+Dave Tierney, Colleen~Wilson-Hodge
+
+\end{centering}
+\hspace{2 cm}
+
+
+ On 20 August 2009, at T$_\mathrm{0}$=00:38:16.19 UT, GBM triggered on
+ the very bright GRB~090820A~\cite{grb090820A}. This GRB also
+ triggered Coronas Photon-RT-2~\cite{GCN-CORONAS}. The burst location
+ was initially not in the FOV of the LAT onboard Fermi but was bright
+ enough to result in an ARR. However, Earth avoidance constraints
+ prevented such a maneuver until 3100 sec after the burst trigger and
+ the burst was not detected at higher energies by the LAT.  The most
+ precise position for the direction of the burst comes from the GBM
+ trigger data which localizes the burst to a patch of sky centered on
+ RA = 87.7 degree and Dec = 27.0 degree (J2000) with a 4 degree error,
+ statistical and systematic. The current best model for systematic
+ errors is 2.8 degrees with 70\% weight and 8.4 degrees with 30\%
+ weight \cite{briggsann}. We verified that our analysis does not
+ change significantly using instrument response functions for assumed
+ source locations throughout this region of uncertainty.
+ \figureref{fig:figure1} shows the light curve of GRB~090820A as seen
+ by GBM,
+\begin{figure}[h]
+\cfig{6}{figure1}{5}
+\caption{ Light curve of GRB~{\it
+    090820}A as observed by GBM. The two panels show the count rate in
+  the two NAI detectors (top) and BGO (bottom). The dashed lines
+  indicate the time intervals (a, b, c, d) used for the time-resolved
+  analysis (see Figure 3 and Table 1). It is clear that the burst
+  consists of two main peaks and that this burst is very bright in the
+  BGO detectors.}
+\label{fig:figure1}
+\end{figure}
+from 8 to 200 keV in the NaI detectors (top) and from 200 keV to 40
+MeV in the BGO detector (bottom). GBM triggered on a weak precursor
+which we do not include in the analysis. The main light curve begins
+at T$_{0}$ + 28.1s. The main structure of the light curve consists of
+a fast rising pulse with an exponential decay lasting until T$_{0}$+60
+s. A second, less intense, peak beginning at T$_{0}$+30 s is
+superimposed on the main peak.
+
+
+With such a high intensity and simple structure, this GRB allows for
+detailed time-resolved spectroscopy. Because this burst is intense,
+calibration issues make the Iodine K-edge (33 keV) prominent in the
+count spectra owing to small statistical uncertainties, and we remove
+energy channels contributing to this feature from our spectral
+fits. In addition, an effective area correction is applied between
+each of the NaI detectors and the BGO 0 during the fit process. This
+correction of $\approx$~23\% is used to account for possible
+imperfections in the response models of the two detector types.
+We simultaneously fit the spectral data of the NaI detectors with a
+source angle less than 60 degrees (NaI 1 and 5) and the data from the
+brightest BGO detector (BGO~0) using the analysis package RMFIT.
+
+
+We perform a fit to the integrated spectrum and find that it is best
+represented by synchrotron emission from thermal and power-law
+distributed electrons with an additional blackbody component
+characterized by a kT~$\approx$~42 keV (C-Stat/DOF = 558/353). The
+\teq{\nu F_{\nu}} spectrum is displayed in \figureref{fig:figure2}
+and the best-fit values in \tableref{tab:table1}. We also performed
+a fit using the Band function (C-Stat/DOF = 593/355).
+\begin{figure}[h]
+\cfig{6}{figure2}{5}
+\caption{The integrated
+  spectrum of GRB~090820A. We are able to resolve three
+  components, thermal synchrotron, power-law synchrotron, and a
+  blackbody. Energy channels near the NaI K-edge are omitted. The
+  deviations in the fit residuals are the due to systematics in the
+  detector response resulting from the high count rate and spectral
+  hardness of this burst. However, deviations are never greater than
+  4$\sigma$ and do not significantly impact the values of the best fit
+  parameters. The multiple curves near the peak of the spectrum are an
+  artifact of the effective-area correction applied to each detector
+  and not related to the different fitted models.}
+\label{fig:figure2}
+\end{figure}
+
+
+
+\begin{figure}
+\cfig{6}{figure3}{4}
+\label{fig:figure3}
+\caption{The electron distribution corresponding to the integrated spectrum. The non-physical jump in the amplitude between the Maxwellian and the power-law distribution (parametrized by $\epsilon$) at $\gammaMin$ is clearly seen.}
+\end{figure}
+
+
+
+We find in concordance with BB04 that emission from power-law
+synchrotron dwarfs the emission from thermal synchrotron by at least 3
+orders of magnitude. The value of $\gammaMin$ is fixed to 3, the
+choice adopted by BB04: it is a value that accommodates distributions
+typically determined by shock acceleration simulations.  When fitting
+the power-law synchrotron component we have to fix the value of the
+power-law index to its best fit value to remove a correlation between
+the amplitude and the index; this does not change the fit statistic
+but does mean that the amplitudes obtained are valid only for that
+index. The inferred electron distribution from this fit is shown in
+\figureref{fig:figure3}. We note that the inability to simultaneously
+constrain the power-law index and amplitude of the synchrotron
+function may be solved in future studies by including joint fits with
+LAT data, whenever available.
+% \end{deluxetable}
+
+
+
+\begin{table}
+\scriptsize
+\centering
+\begin{tabular}{c | c c c c c c c c}
+Time interval&$n_{0}$ {$(\gamma s^{-1}cm^{-2}keV^{-1})$} & $\epsilon$ & $\mathcal{E}_c$ (keV) & $\delta$ & $\gammaMin$ & $A_{BB}$ $(\gamma s^{-1}cm^{-2}keV^{-1})$ & $kT$ (keV) \\
+\hline \hline
+Time integrated&$0.3437_{-0.065}^{+0.204}$ & $871_{-234}^{+254}$ & $10.39_{-0.245}^{+0.254}$ & $4.9$ & $3.0$ & $2.08_{-0.208}^{+0.367}\times10^{-5}$ & $42.27_{-1.35}^{+1.49}$ \\
+
+a&$ 2.378_{-0.176}^{+0.189}$ & $-$ &   $8.351_{-0.93}^{+1.08}$ & $-$ & $-$ & $-$ & $-$ \\
+
+b&$ 859_{-89.1}^{+94.0}$ & $-$ & $14.24_{-0.776}^{+0.848} $ & $ 4.4 $ & $3.0$ & $1.774_{-0.356}^{+0.410}\times10^{-4}$ & $35.32_{-1.77}^{+1.99}$ \\
+
+c& $1.901_{-0.093}^{+0.094}\times10^{4}$ & $-$ & $15.22_{-0.399}^{+0.411}$ & $ 5.9$ & $3.0$ & $1.818_{-0.344}^{+0.400}\times10^{-4}$ & $ 38.7_{-1.92}^{+2.13}$ \\
+
+d&$ 2.196_{-0.466}^{+0.720}$ & $-$ & $4.035_{-0.715}^{+0.689}$ & $-$ & $-$ & $8.383_{-3.18}^{+4.89}\times10^{-5}$ & $ 28.40_{-3.59}^{+3.73}$ \\
+%\hline
+
+\end{tabular}
+
+\caption{The fit parameters for the
+  time-integrated (first row) and time-resolved spectra. The fit
+  parameters for the blackbody component are its amplitude
+  ($A_{BB}$) and energy ($kT$). The fit parameters for the
+  non-thermal components are described in
+  \sectionref{sec:physmod:rmfit}. The break energy
+  $\mathcal{E}_b\equiv \mathcal{E}_c(\gamma \to \eta\gamth )$
+  corresponds to employing the substitution $\gamma \to \eta\gamth
+  $ in \equationref{eq:elec_dist}.  Note that the ratio of the
+  amplitudes is not equal to the ratio of the fluxes.}
+
+\label{tab:table1}
+\end{table}
+
+
+
+
+%TRS
+For the time resolved analysis we fit four bins labeled {\textbf a},
+{\textbf b}, {\textbf c} and {\textbf d} as shown in
+\figureref{fig:figure1} with the various synchrotron models. The
+corresponding electron distributions inferred from these fits are
+displayed in \figureref{fig:figure5}. We also fit the Band function to
+each spectrum to show that in nearly all cases the physical models can
+fit the data as well as the Band function. We chose the time binning
+by finding a balance between high signal-to-noise and evolution of the
+spectral shape so that we can identify the time evolution of each
+component throughout the burst. Where possible, we fit all three
+components simultaneously. Due to the similarity in the spectral
+shapes of the low energy portions of the thermal synchrotron and
+power-law synchrotron components it is not always possible to
+constrain all of the fit parameters especially when one component is
+much stronger than the other. Therefore, when one component is
+dominant we include only that component in the fit. The ability to fit
+both components in the time integrated fit is most likely due to the
+fact that both components are significant over the interval.
+%Figure4
+\begin{figure}[h]
+\centering
+\cfig{6}{figure4}{6}
+
+\caption{The time-resolved
+  spectra for GRB~{\it 090820}A. The spectra represent bin \textbf{a}
+  with thermal synchrotron only (top left panel), bin \textbf{b} with
+  power-law synchrotron + blackbody (top right panel), bin \textbf{c}
+  again with power-law synchrotron + blackbody (bottom left panel),
+  and finally bin \textbf{d} with thermal synchrotron + blackbody
+  (bottom right panel). As with Fig. \figureref{fig:figure2}, the
+  multiple curves are associated with the effective area correction.}
+\label{fig:figure4}
+\end{figure}
+
+
+%%Figure5
+\begin{figure}
+\centering
+\cfig{6}{figure5}{4}
+\label{fig:figure5}
+\caption{The electron distributions for the time-resolved spectra. The choice of $\eta$ with a power-law only distribution is arbitrary due to the fact that $\mathcal{E}_c$ and $\eta$ both scale $\Ep$.}
+\end{figure}
+
+From bins {\textbf b} to {\textbf c} the spectrum is best described by
+synchrotron emission from power-law distributed electrons in addition
+to a blackbody (\tableref{tab:table1} and
+\figureref{fig:figure4}). The thermal synchrotron component is too
+weak to meaningfully include it in the fit. We find that the intensity
+of the power-law synchrotron increases significantly from bin {\textbf
+  b} to {\textbf c} while the blackbody component remains nearly
+constant in intensity.  The spectral index of the electrons in these
+intervals varies from -4.4 to -5.9.  Such values are consistent with
+those expected from diffusive acceleration theory, for the specific
+case of superluminal shocks \cite{Baring:2011}, i.e. those where the
+mean magnetic field angle to the shock normal is significant. This
+geometrical requirement establishes efficient convection of particles
+downstream of relativistic shocks, thereby steepening their
+acceleration distribution.  The blackbody component decreases in
+intensity at this point but the temperature remains constant within
+errors.  In bins {\textbf a} and {\textbf d}, with weaker emission,
+several models are essentially statistically tied.  It is possible
+that PLS+BB persists throughout the entire GRB. Alternatively, the GRB
+could even begin in bin {\textbf a} with thermal synchrotron emission
+and transition to the PLS+BB emission. If this were true we would be
+seeing emission from electrons that have not yet been accelerated into
+a power-law distribution by the shock. The C-stat values for all of
+the models fit in each bin are displayed in Table \tableref{tab:table2}.
+
+\begin{table}
+\centering
+\begin{tabular}{c|c c c c c}
+% & Band & Thermal Synchrotron & Thermal Synchrotron + blackbody & Power Law Synchrotron & Power Law Synchrotron + blackbody \\
+Time Interval & Band & TS & TS + BB & PLS & PLS + BB \\
+\hline \hline
+a & 464/355 & 466/357 & 464/355 & 467/357 & 465/355 \\
+
+b & 432/355 & 742/357 & 445/355 & 555/357 & 434/355 \\
+
+c & 450/355 & 1088/357 & 488/355 & 558/357 & 434/355 \\
+
+d & 404/355 & 421/357 & 403/355 & 406/357 & 405/355 
+
+\end{tabular}
+\caption{The c-stat per degree of freedom for each time model in the selected time intervals.}
+\label{tab:table2}
+\end{table}
+
+While it is not possible to constrain all parameters in all the bins,
+it should be stressed that this is due to natural correlations in the
+synchrotron functions. These difficulties do not arise when using the
+Band function because it has a simpler parametrization.
+
+
+%%Conclusion
+\section{Conclusion of Study}
+%
+
+Here, it has been shown that thermal and non-thermal synchrotron
+photon models, with an additional blackbody, are well consistent with
+the emission spectra of GRB 090820A in various time intervals. These
+are physical models that afford the ability to constrain parameters
+that are physically meaningful, for example key descriptors of the
+electron distribution that is motivated by shock acceleration
+theory. By implementing these models into a forward-folding spectral
+analysis software we have been able to directly constrain many of the
+physical model parameters and their respective errors; a first in the
+field of GRB spectroscopy. This constitutes substantial progress over
+the use of the empirical Band function to fit prompt GRB spectra,
+which has been a nearly universal practice to date.  The results
+presented here enable more rigorous statements about the validity of
+GRB emission models, moving the study of prompt burst emission into a
+new era.
+
+Our modeling has focused on the standard synchrotron shock model with
+the addition of a blackbody component. The spectral fitting reveals a
+complex temporal evolution of the separate components. While spectral
+evolution is a well-known feature of GRBs, this type of fitting can
+enable \textit{direct} physical interpretation of the evolution. These
+fits provide evidence that the line of death issue
+\cite{preece:1998,Preece:2002} can be overcome naturally with a
+combination of synchrotron and blackbody emission: the prominence of a
+blackbody component with its flat Rayleigh-Jeans portion would derive
+a comparably-fitted Band function with a flat low-energy index. This
+was also suggested by \cite{Guiriec:2011} where the authors used
+simultaneous fits of the Band function and a blackbody. Note that it
+is possible that other physical models may, in fact, produce superior
+fits to the data for GRB 090820A and other bursts. Strongly-cooled
+synchrotron emission, inverse Compton and jitter radiation are popular
+candidates, and our work here motivates the future development of
+RMFIT software modules for these processes.
+
+A principal finding of the analysis in this paper is that the
+power-law synchrotron component is orders of magnitude more intense
+than the thermal synchrotron component during the peak of the burst,
+the latter contributing at most a few percent of the flux. This
+confirms the finding of BB04 for BATSE/EGRET bursts GRB 910503, GRB
+910601 and GRB 910814, which was a theoretically-based perspective
+that did not fold models through the detector response matrices. They
+had noted that full plasma and Monte Carlo diffusion simulations of
+shock acceleration clearly predict a power-law tail in the particle
+distribution that smoothly extends from the dominant thermal
+population (e.g. see also \cite{Baring:2011}, and references therein).
+This tail is several orders of magnitude smaller than what is found
+when fitting synchrotron emission to burst spectra. It is not clear
+how such non-thermally-dominated distributions can arise near shocks,
+providing a conundrum for the standard synchrotron shock
+model. Limited smoothing of the sharp peak of the non-thermal electron
+component will not alter this conclusion.
+
+
+This result is also in accord with \cite{Guiriec:2010}, in their
+analysis of GRB 100724B, who fitted its GBM spectra with a
+combination of the Band model and a blackbody. They too found that an
+unrealistically high efficiency for the acceleration mechanism or 
+a source size smaller than the innermost stable orbit of
+a black hole was required to invoke the standard fireball model for
+explaining the origin of the $\gamma$-ray emission. Therefore, it was
+surmised therein that the outflow from the jet was at least partially
+magnetized.
+
+To conclude, the success of this analysis in isolating the relative
+contributions of a handful of distinct spectral components indicates
+that it is imperative for the field of GRB spectroscopy to move away
+from the use of the empirical fitting functions: many physical models
+can asymptotically approximate the Band spectral indices, rendering it
+difficult to discern between them particularly near the $\nu F_{\nu}$
+peak. Instead, direct comparisons of the fitted physical models are
+possible, and are required to truly discriminate between the various
+emission processes. The fitting of physical synchrotron shock
+model/blackbody spectra here offers a clear advance beyond empirical
+fits, and provides the impetus for further development and deployment
+of physical modeling of prompt burst emission spectra.
+
+\section{Post-Analysis of GRB 090820A and Constraining $\epsilon$}
+\label{sec:epsdisc}
+The analysis of \cite{Burgess:2012} provided evidence that direct use
+of physical models is possible. Several areas of this analysis must be
+refined and improved upon. One of the main and troubling findings of
+this work was that the non-thermal population of electrons was more
+prominent than the thermal population when the two were fit
+together. This was found through the value of $\epsilon$ in the
+spectral fits. It should be noted as it was in \cite{Burgess:2012}
+that the value was highly unconstrained. This happens because the
+low-energy slope of the thermal and non-thermal synchrotron photon
+spectra have an asymptotic index of -2/3. When treated as separate
+components the fitting engine has a difficult time converging on the
+relative contribution of each component but has to also account for
+the high-energy contribution of the non-thermal synchrotron. Therefore
+it quickly converges on a value of $\epsilon$ that favors a relatively
+large contribution from power-law electrons.
+
+After this analysis, ways to force the fitting engine to converge of
+physical electron distributions were investigated. It has been shown
+that the contribution from electrons in the power-law to the
+post-shock accelerated distribution should be minuscule ($<10$\%)
+compared to the thermal electrons and that the distribution should be
+continuous \cite{Spitkovsky:2008}. One way to achieve this is to place
+numerical constraints on the value of $\epsilon$ so that the
+distribution is always continuous. Due to the shape of the combined
+distribution, this constraint will also guarantee that the relative
+contribution of power-law electrons is less than that of the thermal
+distribution.  By setting equating the thermal and power-law
+distributions at and solving for $\epsilon$ one arrives at
+\begin{equation}
+  \label{eq:epsnorm}
+  \epsilon = \dover{\gammaMin}{\gamth}^2 \exp\left(-\dover{\gammaMin}{\gamth}\right).
+\end{equation}
+\begin{figure}[h!]
+  \centering
+  \cfig{6}{changeG}{5}
+  \caption{The amended electron distribution with a fixed normalization such that the distribution is continuous regardless of the values of $\delta$ and $\gammaMin$.}
+  \label{fig:fixeps}
+\end{figure}
+For all further analysis, this value of $\epsilon$ will be used when
+fitting GRB spectra with the slow-cooled synchrotron model.
+
+
+
+
+
+
+
+
+
+
+%Table 1
+
+
+% This LaTeX table template is generated by emacs 23.2.1
+
+
+
+
+
+
+%\end{table}
+
+
+
+
+%Table2
+
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

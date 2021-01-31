@@ -1,0 +1,363 @@
+%   Thesis.tex - Uah ph.D. Dissertation Main File
+%
+%   This is the main file for my thesis. It loads all content via
+%   \include statments
+
+%%% Making the DVI and PDF output the correct size %%%
+%   Important - the default pagesize for DVI and PDF output in most LaTeX
+%   distributions is a4 (210x297cm, or about 8.27�11.69 in), which won't work
+%   for the UAH format.  So, you have to change the DVI and PDF output in your
+%   LaTeX distribution.  In most distros, you need to change the following files:
+
+%   (1.)  C:\texmf\dvipdfm\config\dvipdfmx.cfg
+%   (2.)  C:\texmf\dvipdfm\config\config
+%   (3.)  C:\texmf\pdftex\config\pdftex.cfg
+
+%   For numbers (1.) and (2.), you will change where the files say "p a4" to
+%   "p letter" (there should be some explanation in the files themselves, too).
+%   For number (3.), you will change two lines of that file to read:
+
+%   page_height 11 true in
+%   page_width 8.5 true in
+
+%   There are "local" versions of all the above files in this complete rar
+%   package which 'should' override the a4 defaults - but these do not work in
+%   some distributions, so editing the above files is usually necessary.
+%   For more info, search google for "pdftex.cfg" and "dvipdfmx.cfg"
+%%% (End DVI and PDF changes) %%%
+
+%   Define the document class. The proper class is "book." The normal options
+%   are "12pt" and "onesided". When printing out copies for purposes other than
+%   submission to the Graduate School, the option "twoside" can be used to
+%   format the output in a manner which looks good when printed duplex.
+
+\documentclass[12pt,oneside,letterpaper]{book}
+
+%   Load the packages necessary for the thesis. The only required packages are
+%   "uahdis", which loads the UAH Dissertation Style, and "chngpage" which is
+%   used by "uahdis". The other packages are optional, and should be loaded only
+%   if you have a need for the functionality they provide. Documentation on each is
+%   available at CTAN.org. The basic purpose of each are described below:
+%   units---provides a convenient mechanism for writing quantities with units.
+%   bm---provides a convenient mechanism for producing bold symbols in math mode
+%   hhline---improved lines and borders in tables
+%   rotating---allows landscape oriented pages in a portrait oriented document
+%   verbatim---prints text files verbatim. useful for computer code
+%   amsfonts---provides additional typefaces
+%   amssymb---provides additional mathematical symbols
+%   xspace---properly adjusts space after \newcommands which expand to text
+%   booktabs---creates traditional scientific tables - no vertical lines, very
+%   few horizontal lines, with varying thickness (not meant to be used with hline)
+
+%   Excellent descriptions of all LaTeX packages can be found here:
+%   http://www.tug.org/tex-archive/help/Catalogue/index.html
+
+\usepackage[]{uahdis,chngpage,units,bm,hhline,rotating,verbatim,amsfonts,amssymb,xspace}
+\usepackage[]{indentfirst,layouts, booktabs, enumerate, gensymb, subfigure}
+\usepackage[section]{placeins}
+\usepackage{url}
+%\usepackage{mathabx}
+%   Load the tex file which contains all local \newcommands and \newenvironments
+
+\include{definitions}
+
+%   The next line requires the leading "%". It is only useful if you are using
+%   WinEdt as your text editor. It allows WinEdt to collect bibliographic entries into
+%   a pop-up table that you can summon when you are \cite-ing a source.
+
+%GATHER{Bibliography.bib}
+
+
+
+
+\def\dover#1#2{\hbox{${{\displaystyle#1 \vphantom{(} }\over{
+\displaystyle #2 \vphantom{(} }}$}}
+%
+{\catcode`\@=11                                                  
+\gdef\SchlangeUnter#1#2{\lower2pt\vbox{\baselineskip 0pt\lineskip0pt    
+\ialign{$\m@th#1\hfil##\hfil$\crcr#2\crcr\sim\crcr}}}}           
+\def\gtrsim{\mathrel{\mathpalette\SchlangeUnter>}}               
+\def\lesssim{\mathrel{\mathpalette\SchlangeUnter<}}    
+\def\lambar{\lambda\llap {--}}
+\def\fsc{\alpha_{\hbox{\sevenrm f}}} 
+\def\sigt{\sigma_{\hbox{\sixrm T}}}
+\def\erg{\varepsilon}                               
+\def\lambdamax{\lambda_{\hbox{\sevenrm max}}} 
+\def\tesc{t_{\hbox{\sevenrm esc}}} 
+\def\ergNT{\erg_{\hbox{\sixrm NT}}}
+\def\calFNT{{\mathcal{F}}_{\hbox{\fiverm NT}}}
+\def\ndotsyn{{\dot n}_{\hbox{\fiverm S}}}
+\def\ndotssc{{\dot n}_{\hbox{\fiverm SSC}}}
+\def\Ndotssc{{\dot N}_{\hbox{\fiverm SSC}}}
+\def\es{\erg_{\gamma}}
+\def\gammat{\gamma_{\hbox{\fiverm T}}}   
+\def\gammin{\gamma_{\hbox{\sevenrm min}}}
+\def\gamPL{\gamma_{\rm PL}}
+\def\gamth{\gamma_{\rm th}}
+\def\gammaMin{\gamma_{\rm min}}
+\def\yPL{y_{\hbox{\sixrm PL}}}
+\def\vFv{\nu F_{\nu}}
+\def\Ep{E_{\rm p}}
+\def\Fv{F_{\nu}}
+\def\gray{$\gamma$-ray}
+\def\chisq{$\chi^{2}\;$}
+\def\dcstat{$\Delta_{\rm cstat}\;$}
+\def\teq#1{$\, #1\,$}
+
+\def\ve{\varepsilon}
+\def\gbm{{\it GBM }}
+\def\lat{{\it LAT }}
+\def\fermi{{\it Fermi }}
+\newcommand{\Mesz}{{M\'esz\'aros}}
+\def\mathnew{\mathsurround=0pt}
+\def\simov#1#2{\lower .5pt\vbox{\baselineskip0pt \lineskip-.5pt
+      \ialign{$\mathnew#1\hfil##\hfil$\crcr#2\crcr\sim\crcr}}}
+\def\simg{\mathrel{\mathpalette\simov >}}
+\def\siml{\mathrel{\mathpalette\simov <}}
+\def\beq{\begin{equation}}
+\def\enq{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\ena{\end{eqnarray}}
+\def\bitm{\bibitem}
+\def\msun{M_\odot}
+\def\L54{L_{54}}
+\def\E55{E_{55}}
+\def\et3{\eta_3}
+\def\th1{\theta_{-1}}
+\def\r07{r_{0,7}}
+\def\x05{x_{0.5}}
+\def\et600{\eta_{600}}
+\def\et3{\eta_3}
+\def\rph{r_{ph}}
+\def\vareps{\varepsilon}
+\def\fflunit{\hbox{~erg cm}^{-2}~\hbox{s}^{-1}}
+\def\eps{\epsilon}
+\def\ve{\varepsilon}
+\def\Fl{\mathcal{F}}
+\def\muh{\hat{\mu}}
+\def\cm{\hbox{~cm}}
+\def\kpc{\hbox{~kpc}}
+\def\Mpc{\hbox{~Mpc}}
+\def\s{\hbox{~s}}
+\def\gev{\hbox{~GeV}}
+\def\Jy{\hbox{~Jy}}
+\def\mJy{\hbox{~mJy}}
+\def\TeV{\hbox{~TeV}}
+\def\GeV{\hbox{~GeV}}
+\def\MeV{\hbox{~MeV}}
+\def\kev{\hbox{~keV}}
+\def\keV{\hbox{~keV}}
+\def\eV{\hbox{~eV}}
+\def\G{\hbox{~G}}
+\def\erg{\hbox{~erg}}
+\def\s{{\hbox{~s}}
+\def\cm2{\hbox{~cm}^2}}
+\def\para{\parallel}
+
+
+\def\eps{\epsilon}
+\def\e{\epsilon}
+\def\ep{\epsilon^\prime}
+\def\veps{\varepsilon}
+
+\newcommand{\g}{\gamma}
+\newcommand{\gp}{{\gamma^\prime}}
+\newcommand{\gpp}{{\gamma_p^\prime}}
+\newcommand{\dD}{{\delta_{\rm D}}}
+\newcommand{\tp}{t^\prime}
+
+%   Define my name
+\author{J. Michael Burgess}
+
+%   Define the title of my thesis (user upper and lower case)
+\title{Discerning the Physical Properties of Gamma-Ray Bursts via Time Resolved Analysis with Physical Spectral Models}
+
+%   Define the year
+\date{2013}
+
+%   Define my department
+\uahdepartment{Physics}
+
+%   Define my advisor (no title - i.e., no "Dr.")
+\uahadvisor{Robert D. Preece}
+
+%   Define my committee members (no titles)
+\uahmema{Matthew G. Baring}
+
+\uahmemb{Valerie Connaughton}
+
+\uahmemc{Massimilio Bonamente}
+
+\uahmemd{Michael S. Briggs}
+
+\uahmeme{Gary P. Zank}
+
+% Note: If you have more than 5 total committee member,
+% you must manually edit the uahdis.sty file (Approval Page)
+
+%MWT
+
+%   Define my Department Chair
+\uahdeptchair{Richard Lieu}
+
+%   Define my College (do not write "College of")
+\uahcollege{Science}
+
+%   Define my College Dean
+%   the tex for Dean Aunon is:  Jorge I. Au\~n\a'on
+\uahcolldean{Jack Fix}
+
+%   Define my Degree (i.e., Master of Science, Doctor of Philosophy)
+\uahdegree{Doctor of Philosophy}
+
+%   Define my Program name
+\uahprogram{Physics}
+
+%   Shortened name for degree
+%   type "master's" or "doctoral" (without quotes)
+\uahdegreeshort{doctoral}
+
+%   Define my Document Type
+\uahdoctype{dissertation}
+
+%   Define my Graduate Dean
+\uahgraddean{David Berkowitz}
+
+
+%   Let's get started
+\begin{document}
+
+%   To view a layout of the margins of this document,
+%   uncomment the below line (requires "layouts" package):
+%\layout
+%\tocdiagram\tocdesign
+
+%   Here comes the stuff that goes before the main content
+\frontmatter
+
+\pagestyle{plain}
+
+\maketitle
+
+\copyrightpage
+
+%MWT - UAH Approval Form
+\approvalpage
+
+%\makeabstract % Now issued in ./FRONT/abstract.tex
+
+%   Include my abstract
+\include{./FRONT/abstract}
+
+% Abstract signatures:
+%\abstractsig % command now issued in abstract.tex
+
+%   Include my acknowledgements
+\include{./FRONT/acknowledgments}
+
+
+%   Make a Table of Contents
+\tableofcontents
+
+%   Make a List of Figures
+\listoffigures
+
+%   Make a List of Tables
+\listoftables
+
+%   Make a List of Symbols (Comment out if unwanted)
+\include{./FRONT/symbols}
+
+%   Make a "Chapter" header in TOC, per UAH style
+%   issue command after last frontmatter TOC entry
+%   cannot come directly before first chapter \include
+\addchapheadtotoc
+
+
+%   Set my dedication
+\dedication{To Isaac for being cooler than cool.}
+
+%   Make Epigraph Page
+%\epigraphpage{The Mountain Goats}{Astronomy? Impossible to understand and madne%ss to investigate.}
+\epigraphpage{The Mountain Goats}{Something here will eventually have to explode}
+
+\clearpage
+
+\pagestyle{myheadings} \markright{}
+
+%   Here comes the main content
+\mainmatter
+
+%   Include my chapters
+%   LaTeX will look for your chapter files in the appropriate folders,
+%   as addressed below.  LaTeX will look for a .tex file with the
+%   same name as the name you give it below - i.e., for the CH1 folder,
+%   LaTeX will look for introduction.tex (which is where you will type
+%   all your chapter 1 stuff).  You can name your chapters/files whatever
+%   you want - just make sure the names below match the names in the
+%   folders.  Also, you can add or subtract chapters as you like -
+%   just make sure that the address and filenames below match your
+%   file structure.
+
+\include{./CH1/introduction}
+\include{./CH2/chapter2name}
+\include{./CH3/chapter3name}
+\include{./CH4/chapter4name}
+\include{./CH5/chapter5name}
+\include{./CH6/chapter6name}
+\include{./CH7/chapter7name}
+\include{./CH8/chapter8name}
+\include{./CH9/chapter9name}
+\include{./CH10/chapter10name}
+
+
+
+%\include{./CH6/conclusions}
+
+%   This set of LaTeX files uses the Appendix Package to handle
+%   the appendices - it creates the "Appendices" page and puts
+%   "Appendix A:" in the TOC.  So, strictly speaking, the
+%   \appendix command is not necessary (because the appendix
+%   package uses an "appendices environment").  But, for
+%   the typedref package to operate correctly, you must include the
+%   \appendix command - so, it's included after the beginning of
+%   the appendices environment.  If you only have one appendix,
+%   then you need to remove the "page" option from the uahdis.sty
+%   file ('page' option occurs when loading appendix package).
+%   You can add or subtract appendices - they are treated just like
+%   chapters - the only difference is that they occur within the
+%   appendices environment, which tells LaTeX to give them letters
+%   instead of numbers.
+
+\begin{appendices}
+\appendix
+
+%   Include my appendices
+\include{./CH11/appendix1name}
+\include{./CH12/appendix2name}
+\include{./CH13/appendix3name}
+\include{./CH14/appendix4name}
+\include{./CH15/appendix5name}
+\include{./CH16/appendix6name}
+
+%   Here comes the stuff after the main content
+%   turn off appendix environment/package first:
+\end{appendices}
+\backmatter
+
+%   Include my bibliography
+%\include{./BACK/bibliography}
+
+\bibliographystyle{unsrt}
+\begin{singlespace}
+\bibliography{bib2}
+\end{singlespace}
+
+
+%   Include my biography
+%\include{./BACK/biography}
+% MWT - biography not included in UAH thesis
+
+
+%   We're done.
+\end{document}
